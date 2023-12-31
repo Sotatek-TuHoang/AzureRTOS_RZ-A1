@@ -14,7 +14,7 @@
 #include "tx_api.h"
 #include "r_os_abstraction_api.h"
 
-#include "mylib/mylib.h"
+#include "mylib.h"
 
 #define     DEMO_STACK_SIZE         1024
 #define     DEMO_BYTE_POOL_SIZE     9120

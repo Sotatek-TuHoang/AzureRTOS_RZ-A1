@@ -1,7 +1,9 @@
 Extracting support files...
-02:41:55 **** Incremental Build of configuration RZA1H Debug for project r_sample_threadx ****
+02:55:07 **** Incremental Build of configuration RZA1H Debug for project r_sample_threadx ****
 make -r -j12 all 
+Building file: ../src/mylib/mylib.c
 Building file: ../src/sample_threadx.c
+../src/mylib/mylib.c
 ../src/sample_threadx.c
 Building target: r_sample_threadx.elf
 arm-none-eabi-objcopy -O srec "r_sample_threadx.elf"  "r_sample_threadx.srec"

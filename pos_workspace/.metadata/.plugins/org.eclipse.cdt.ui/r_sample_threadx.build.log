@@ -1,6 +1,8 @@
-02:41:55 **** Incremental Build of configuration RZA1H Debug for project r_sample_threadx ****
+02:55:07 **** Incremental Build of configuration RZA1H Debug for project r_sample_threadx ****
 make -r -j12 all 
+Building file: ../src/mylib/mylib.c
 Building file: ../src/sample_threadx.c
+../src/mylib/mylib.c
 ../src/sample_threadx.c
 Building target: r_sample_threadx.elf
 arm-none-eabi-objcopy -O srec "r_sample_threadx.elf"  "r_sample_threadx.srec"
@@ -8,5 +10,5 @@ arm-none-eabi-size --format=berkeley "r_sample_threadx.elf"
    text	   data	    bss	    dec	    hex	filename
  158724	  10792	2670552	2840068	 2b5604	r_sample_threadx.elf
 
-02:41:55 Build Finished. 0 errors, 0 warnings. (took 456ms)
+02:55:07 Build Finished. 0 errors, 0 warnings. (took 456ms)
 
