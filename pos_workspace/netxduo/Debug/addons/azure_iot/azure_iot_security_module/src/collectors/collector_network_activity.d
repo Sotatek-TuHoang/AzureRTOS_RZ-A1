@@ -1,9 +1,9 @@
 addons/azure_iot/azure_iot_security_module/src/collectors/collector_network_activity.o: \
  ../addons/azure_iot/azure_iot_security_module/src/collectors/collector_network_activity.c \
- E:\Sotatek\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/nx_api.h \
+ E:\Sotatek\AzureRTOS_RZ-A1\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/nx_api.h \
  ../../threadx/common/inc/tx_api.h \
- E:\Sotatek\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/tx_port.h \
- E:\Sotatek\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/nx_port.h \
+ E:\Sotatek\AzureRTOS_RZ-A1\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/tx_port.h \
+ E:\Sotatek\AzureRTOS_RZ-A1\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/nx_port.h \
  ../../threadx/common/inc/tx_trace.h ../../netxduo/common/inc/nx_ip.h \
  ../../netxduo/common/inc/nx_ipv4.h ../../netxduo/common/inc/nx_ipv4.h \
  ../../netxduo/common/inc/nx_tcp.h ../../netxduo/common/inc/nx_udp.h \
@@ -34,13 +34,13 @@ addons/azure_iot/azure_iot_security_module/src/collectors/collector_network_acti
  ../../netxduo/addons/azure_iot/azure_iot_security_module/inc/iot_security_module/model/objects/object_network_activity_ext.h \
  ../../netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/inc/asc_security_core/utils/collection/hashset.h
 
-E:\Sotatek\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/nx_api.h:
+E:\Sotatek\AzureRTOS_RZ-A1\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/nx_api.h:
 
 ../../threadx/common/inc/tx_api.h:
 
-E:\Sotatek\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/tx_port.h:
+E:\Sotatek\AzureRTOS_RZ-A1\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/tx_port.h:
 
-E:\Sotatek\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/nx_port.h:
+E:\Sotatek\AzureRTOS_RZ-A1\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/nx_port.h:
 
 ../../threadx/common/inc/tx_trace.h:
 
