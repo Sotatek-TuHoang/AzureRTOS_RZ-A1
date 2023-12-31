@@ -30,6 +30,8 @@ os_task_t               thread_4;
 os_task_t               thread_5;
 os_task_t               thread_6;
 os_task_t               thread_7;
+os_task_t               thread_hello;
+
 os_msg_queue_handle_t   queue_0;
 psemaphore_t            semaphore_0;
 event_t	                mutex_0;
@@ -60,15 +62,7 @@ void    thread_2_entry(ULONG thread_input);
 void    thread_3_and_4_entry(ULONG thread_input);
 void    thread_5_entry(ULONG thread_input);
 void    thread_6_and_7_entry(ULONG thread_input);
-
-void 	thread_hello_entry(ULONG thread_input)
-{
-	for(;;)
-	{
-		printf("hello");
-		tx_thread_sleep(2000);
-	}
-}
+void 	thread_hello_entry(ULONG thread_input);
 
 /* Define main entry point.  */
 
@@ -77,6 +71,7 @@ int main(void)
 
     /* Enter the ThreadX kernel.  */
     tx_kernel_enter();
+
 }
 
 
@@ -132,6 +127,25 @@ void    tx_application_define(void *first_unused_memory)
 
 }
 
+
+void thread_hello_entry(ULONG thread_input)
+{
+    uint8_t count = 0;
+
+    for(;;)
+    {
+        printf("hello: %d\n", count);
+        count++;
+
+        if (count == 5)
+        {
+            R_OS_DeleteTask(&thread_hello);
+            return;
+        }
+
+        R_OS_TaskSleep(2000);
+    }
+}
 
 /* Define the test threads.  */
 

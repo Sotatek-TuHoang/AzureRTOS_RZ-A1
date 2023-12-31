@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "tx_api.h": "c",
+        "control.h": "c",
+        "windows.h": "c"
+    }
+}

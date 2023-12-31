@@ -1,13 +1,12 @@
-01:36:11 **** Incremental Build of configuration RZA1H Debug for project r_sample_threadx ****
+02:41:55 **** Incremental Build of configuration RZA1H Debug for project r_sample_threadx ****
 make -r -j12 all 
 Building file: ../src/sample_threadx.c
 ../src/sample_threadx.c
-cc1.exe: warning: switch '-mcpu=cortex-a9' conflicts with '-march=armv7-a' switch
 Building target: r_sample_threadx.elf
 arm-none-eabi-objcopy -O srec "r_sample_threadx.elf"  "r_sample_threadx.srec"
 arm-none-eabi-size --format=berkeley "r_sample_threadx.elf"
    text	   data	    bss	    dec	    hex	filename
- 158044	  10792	2670552	2839388	 2b535c	r_sample_threadx.elf
+ 158724	  10792	2670552	2840068	 2b5604	r_sample_threadx.elf
 
-01:36:13 Build Finished. 0 errors, 0 warnings. (took 1s.667ms)
+02:41:55 Build Finished. 0 errors, 0 warnings. (took 456ms)
 
