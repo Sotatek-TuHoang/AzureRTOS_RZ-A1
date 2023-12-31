@@ -1,0 +1,9 @@
+01:09:24 **** Incremental Build of configuration Debug for project netxduo ****
+make -r -j12 all 
+make --no-print-directory pre-build
+ 
+make --no-print-directory main-build
+make[1]: Nothing to be done for 'main-build'.
+
+01:09:24 Build Finished. 0 errors, 0 warnings. (took 505ms)
+

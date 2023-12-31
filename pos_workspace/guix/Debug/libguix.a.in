@@ -1,0 +1,1 @@
+-r  "libguix.a" @"guix.a.in"
