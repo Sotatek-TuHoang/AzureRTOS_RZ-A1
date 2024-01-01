@@ -26,7 +26,7 @@
  * @brief          ssif low level header file
  * @version        1.00
  * @date           27.06.2018
- * H/W Platform    RZA1LU Steam-IT
+ * H/W Platform    RZA1H
  *****************************************************************************/
 /*****************************************************************************
  * History      : DD.MM.YYYY Ver. Description

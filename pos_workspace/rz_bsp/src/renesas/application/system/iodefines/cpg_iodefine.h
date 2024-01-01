@@ -18,13 +18,13 @@
 * you agree to the additional terms and conditions found by accessing the
 * following link:
 * http://www.renesas.com/disclaimer*
-* Copyright (C) 2013-2016 Renesas Electronics Corporation. All rights reserved.
+* Copyright (C) 2013-2017 Renesas Electronics Corporation. All rights reserved.
 *******************************************************************************/
 /*******************************************************************************
 * File Name : cpg_iodefine.h
-* $Rev: 2941 $
-* $Date:: 2017-02-20 14:49:23 +0000#$
-* Description : Definition of I/O Register for RZ/A1LU (V3.00l)
+* $Rev: 29 $
+* $Date:: 2016-12-20 17:40:26 +0900#$
+* Description : Definition of I/O Register for RZ/A1H,M (V2.00h)
 ******************************************************************************/
 #ifndef CPG_IODEFINE_H
 #define CPG_IODEFINE_H
@@ -37,7 +37,7 @@
 
 
 /* Start of channel array defines of CPG */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
+
 /* Channel array defines of CPG_FROM_SWRSTCR1_ARRAY */
 /*(Sample) value = CPG_FROM_SWRSTCR1_ARRAY[ channel ]->SWRSTCR1; */
 #define CPG_FROM_SWRSTCR1_ARRAY_COUNT  (3)
@@ -48,7 +48,7 @@
 #define CPG_FROM_SWRSTCR1 (*(struct st_cpg_from_swrstcr1 *)&CPG.SWRSTCR1) /* CPG_FROM_SWRSTCR1 */
 #define CPG_FROM_SWRSTCR2 (*(struct st_cpg_from_swrstcr1 *)&CPG.SWRSTCR2) /* CPG_FROM_SWRSTCR2 */
 #define CPG_FROM_SWRSTCR3 (*(struct st_cpg_from_swrstcr1 *)&CPG.SWRSTCR3) /* CPG_FROM_SWRSTCR3 */
-#endif
+
 
 /* Channel array defines of CPG_FROM_STBCR3_ARRAY */
 /*(Sample) value = CPG_FROM_STBCR3_ARRAY[ channel ]->STBCR3; */
@@ -85,9 +85,7 @@
 
 
 #define CPGFRQCR (CPG.FRQCR)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define CPGFRQCR2 (CPG.FRQCR2)
-#endif
 #define CPGCPUSTS (CPG.CPUSTS)
 #define CPGSTBCR1 (CPG.STBCR1)
 #define CPGSTBCR2 (CPG.STBCR2)
@@ -110,10 +108,8 @@
 #define CPGSTBCR12 (CPG.STBCR12)
 #define CPGSWRSTCR1 (CPG.SWRSTCR1)
 #define CPGSWRSTCR2 (CPG.SWRSTCR2)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define CPGSWRSTCR3 (CPG.SWRSTCR3)
 #define CPGSTBCR13 (CPG.STBCR13)
-#endif
 #define CPGRRAMKP (CPG.RRAMKP)
 #define CPGDSCTR (CPG.DSCTR)
 #define CPGDSSSR (CPG.DSSSR)
@@ -126,8 +122,7 @@ typedef struct st_cpg
 {
                                                            /* CPG              */
     volatile uint16_t FRQCR;                                  /*  FRQCR           */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
-	    volatile uint8_t   dummy319[2];                            /*                  */
+    volatile uint8_t   dummy319[2];                            /*                  */
     volatile uint16_t FRQCR2;                                 /*  FRQCR2          */
     volatile uint8_t   dummy320[2];                            /*                  */
     volatile uint8_t   CPUSTS;                                 /*  CPUSTS          */
@@ -254,116 +249,6 @@ typedef struct st_cpg
     volatile uint16_t DSFR;                                   /*  DSFR            */
     volatile uint8_t   dummy347[6];                            /*                  */
     volatile uint8_t   XTALCTR;                                /*  XTALCTR         */
-	#else
-    volatile uint8_t   dummy319[6];                            /*                  */
-    volatile uint8_t   CPUSTS;                                 /*  CPUSTS          */
-    volatile uint8_t   dummy320[7];                            /*                  */
-    volatile uint8_t   STBCR1;                                 /*  STBCR1          */
-    volatile uint8_t   dummy321[3];                            /*                  */
-    volatile uint8_t   STBCR2;                                 /*  STBCR2          */
-    volatile uint8_t   dummy322[11];                           /*                  */
-    volatile uint8_t   STBREQ1;                                /*  STBREQ1         */
-    volatile uint8_t   dummy323[3];                            /*                  */
-    volatile uint8_t   STBREQ2;                                /*  STBREQ2         */
-    volatile uint8_t   dummy324[11];                           /*                  */
-    volatile uint8_t   STBACK1;                                /*  STBACK1         */
-    volatile uint8_t   dummy325[3];                            /*                  */
-    volatile uint8_t   STBACK2;                                /*  STBACK2         */
-    volatile uint8_t   dummy326[955];                          /*                  */
-
-/* start of struct st_cpg_from_syscr1 */
-    volatile uint8_t   SYSCR1;                                 /*  SYSCR1          */
-    volatile uint8_t   dummy327[3];                            /*                  */
-
-/* end of struct st_cpg_from_syscr1 */
-
-/* start of struct st_cpg_from_syscr1 */
-    volatile uint8_t   SYSCR2;                                 /*  SYSCR2          */
-    volatile uint8_t   dummy328[3];                            /*                  */
-
-/* end of struct st_cpg_from_syscr1 */
-
-/* start of struct st_cpg_from_syscr1 */
-    volatile uint8_t   SYSCR3;                                 /*  SYSCR3          */
-    volatile uint8_t   dummy3290[3];                           /*                  */
-
-/* end of struct st_cpg_from_syscr1 */
-    volatile uint8_t   dummy3291[20];                          /*                  */
-
-/* start of struct st_cpg_from_stbcr3 */
-    volatile uint8_t   STBCR3;                                 /*  STBCR3          */
-    volatile uint8_t   dummy330[3];                            /*                  */
-
-/* end of struct st_cpg_from_stbcr3 */
-
-/* start of struct st_cpg_from_stbcr3 */
-    volatile uint8_t   STBCR4;                                 /*  STBCR4          */
-    volatile uint8_t   dummy331[3];                            /*                  */
-
-/* end of struct st_cpg_from_stbcr3 */
-
-/* start of struct st_cpg_from_stbcr3 */
-    volatile uint8_t   STBCR5;                                 /*  STBCR5          */
-    volatile uint8_t   dummy332[3];                            /*                  */
-
-/* end of struct st_cpg_from_stbcr3 */
-
-/* start of struct st_cpg_from_stbcr3 */
-    volatile uint8_t   STBCR6;                                 /*  STBCR6          */
-    volatile uint8_t   dummy333[3];                            /*                  */
-
-/* end of struct st_cpg_from_stbcr3 */
-
-/* start of struct st_cpg_from_stbcr3 */
-    volatile uint8_t   STBCR7;                                 /*  STBCR7          */
-    volatile uint8_t   dummy334[3];                            /*                  */
-
-/* end of struct st_cpg_from_stbcr3 */
-
-/* start of struct st_cpg_from_stbcr3 */
-    volatile uint8_t   STBCR8;                                 /*  STBCR8          */
-    volatile uint8_t   dummy335[3];                            /*                  */
-
-/* end of struct st_cpg_from_stbcr3 */
-
-/* start of struct st_cpg_from_stbcr3 */
-    volatile uint8_t   STBCR9;                                 /*  STBCR9          */
-    volatile uint8_t   dummy336[3];                            /*                  */
-
-/* end of struct st_cpg_from_stbcr3 */
-
-/* start of struct st_cpg_from_stbcr3 */
-    volatile uint8_t   STBCR10;                                /*  STBCR10         */
-    volatile uint8_t   dummy337[3];                            /*                  */
-
-/* end of struct st_cpg_from_stbcr3 */
-
-/* start of struct st_cpg_from_stbcr3 */
-    volatile uint8_t   STBCR11;                                /*  STBCR11         */
-    volatile uint8_t   dummy338[3];                            /*                  */
-
-/* end of struct st_cpg_from_stbcr3 */
-
-/* start of struct st_cpg_from_stbcr3 */
-    volatile uint8_t   STBCR12;                                /*  STBCR12         */
-    volatile uint8_t   dummy3390[3];                           /*                  */
-
-/* end of struct st_cpg_from_stbcr3 */
-    volatile uint8_t   dummy3391[24];                          /*                  */
-    volatile uint8_t   SWRSTCR1;                               /*  SWRSTCR1        */
-    volatile uint8_t   dummy340[3];                            /*                  */
-    volatile uint8_t   SWRSTCR2;                               /*  SWRSTCR2        */
-    volatile uint8_t   dummy341[70555];                        /*                  */
-    volatile uint8_t   RRAMKP;                                 /*  RRAMKP          */
-    volatile uint8_t   dummy342[1];                            /*                  */
-    volatile uint8_t   DSCTR;                                  /*  DSCTR           */
-    volatile uint8_t   dummy343[1];                            /*                  */
-    volatile uint16_t DSSSR;                                  /*  DSSSR           */
-    volatile uint16_t DSESR;                                  /*  DSESR           */
-    volatile uint16_t DSFR;                                   /*  DSFR            */
-    volatile uint8_t   dummy344[6];                            /*                  */
-    volatile uint8_t   XTALCTR;                                /*  XTALCTR         */
-#endif
 } r_io_cpg_t;
 
 
@@ -382,7 +267,7 @@ typedef struct st_cpg_from_stbcr3
     volatile uint8_t   dummy1[3];                              /*                  */
 } r_io_cpg_from_stbcr3_t;
 
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
+
 typedef struct st_cpg_from_swrstcr1
 {
  
@@ -398,7 +283,7 @@ volatile struct st_cpg_from_swrstcr1*  CPG_FROM_SWRSTCR1_ARRAY[ CPG_FROM_SWRSTCR
     CPG_FROM_SWRSTCR1_ARRAY_ADDRESS_LIST;
     /* <-MISRA 11.3 */ /* <-SEC R2.7.1 */
 #endif  /* DECLARE_CPG_FROM_SWRSTCR1_ARRAY_CHANNELS */
-#endif
+
 #ifdef  DECLARE_CPG_FROM_STBCR3_ARRAY_CHANNELS
 volatile struct st_cpg_from_stbcr3*  CPG_FROM_STBCR3_ARRAY[ CPG_FROM_STBCR3_ARRAY_COUNT ] =
     /* ->MISRA 11.3 */ /* ->SEC R2.7.1 */

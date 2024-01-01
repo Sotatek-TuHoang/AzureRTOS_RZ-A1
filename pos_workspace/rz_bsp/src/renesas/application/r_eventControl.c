@@ -44,10 +44,7 @@ Includes   <System Includes> , "Project Includes"
 ******************************************************************************/
 
 #include "r_event.h"
-#include "task.h"
-#include "semphr.h"
-// #include "r_sysIf.h"
-#include "Trace.h"
+
 
 /*****************************************************************************
 Constant Data
@@ -82,7 +79,7 @@ Arguments:     OUT ppEventList - Pointer to the destination event pointer array
                IN  uiNumber - The number of events to create
 Return value:  The number of events not created
 *****************************************************************************/
-uint32_t eventCreate(PPEVENT ppEventList, uint32_t uiNumber)
+uint32_t eventCreate(ppevent_t ppEventList, uint32_t uiNumber)
 {
     bool_t no_more_objects = false;
     if (ppEventList)
@@ -91,7 +88,8 @@ uint32_t eventCreate(PPEVENT ppEventList, uint32_t uiNumber)
         while ((uiNumber) && (false == no_more_objects))
         {
             /* Allocate a queue */
-            PEVENT pEvent = xQueueCreate(1U, sizeof(e_event_state_t));
+        	os_msg_queue_handle_t pEvent;
+            if ( R_OS_CreateMessageQueue( sizeof(e_event_state_t) * 1U, &pEvent))
             if (pEvent)
             {
                 /* Reset the event */
@@ -126,11 +124,11 @@ Arguments:     IN  ppEventList - Pointer to the event list to destroy
                IN  uiNumber The number of events to destroy
 Return value:  none
 *****************************************************************************/
-void eventDestroy(PPEVENT ppEventList, uint32_t uiNumber)
+void eventDestroy(ppevent_t ppEventList, uint32_t uiNumber)
 {
     while (uiNumber--)
     {
-        PEVENT pEvent = *ppEventList++;
+        pevent_t pEvent = *ppEventList++;
         gstEventCount--;
         vQueueDelete(pEvent);
     }
@@ -145,7 +143,7 @@ Description:   Function to set an event
 Arguments:     IN  pEvent - Pointer to the event to set
 Return value:  true if the event was set
 *****************************************************************************/
-_Bool eventSet(PEVENT pEvent)
+_Bool eventSet(pevent_t pEvent)
 {
     e_event_state_t eventState = EV_SET;
 
@@ -176,7 +174,7 @@ Description:   Function to reset an event
 Arguments:     IN  Pointer to the event to reset
 Return value:  true if the event was reset
 *****************************************************************************/
-_Bool eventReset(PEVENT pEvent)
+_Bool eventReset(pevent_t pEvent)
 {
     /* Reset the event */
     xQueueReset(pEvent);
@@ -192,7 +190,7 @@ Description:   Function to return the current state of an event
 Arguments:     IN  pEvent - Pointer to the event
 Return value:  The state of the event
 *****************************************************************************/
-e_event_state_t eventState(PEVENT pEvent)
+e_event_state_t eventState(pevent_t pEvent)
 {
     e_event_state_t eventState = EV_RESET;
     xQueuePeek(pEvent, &eventState, 0UL);
@@ -208,7 +206,7 @@ Description:   Function to return the state of an event and then reset it
 Arguments:     IN  pEvent - Pointer to the event
 Return value:  The state of the event
 *****************************************************************************/
-e_event_state_t eventStateEx(PEVENT pEvent)
+e_event_state_t eventStateEx(pevent_t pEvent)
 {
     e_event_state_t eventState = EV_RESET;
     xQueuePeek(pEvent, &eventState, 0UL);
@@ -233,7 +231,7 @@ Arguments:     IN  ppEventList - Pointer to the list of events
 Return value:  When bfSingle is true the index of the event in the list which
                was set. Always 0 when bfSingle is false
 *****************************************************************************/
-uint32_t eventWait(PPEVENT  ppEventList,
+uint32_t eventWait(ppevent_t  ppEventList,
                    uint32_t uiNumber,
                    _Bool    bfSingle)
 {
@@ -270,7 +268,7 @@ uint32_t eventWait(PPEVENT  ppEventList,
         xQueueSet = xQueueCreateSet(sizeof(e_event_state_t) * uiNumber);
         if (xQueueSet)
         {
-            PEVENT      pEvent;
+            pevent_t      pEvent;
             uint32_t    uiResult = 0;
             uiCount = uiNumber;
             while (uiCount--)
@@ -325,7 +323,7 @@ Arguments:     IN / OUT ppEvent - Pointer to the mutex event pointer
 Return value:  true for success, false if the event could not be created
                or the wait timed out
 *****************************************************************************/
-_Bool eventWaitMutex(PPEVENT ppEvent, uint32_t dwTimeOut)
+_Bool eventWaitMutex(ppevent_t ppEvent, uint32_t dwTimeOut)
 {
     xSemaphoreHandle xSemaphore = NULL;
 
@@ -365,7 +363,7 @@ Description:   Function to release a mutex event
 Arguments:     IN / OUT ppEvent - Pointer to the mutex event pointer
 Return value:  none
 *****************************************************************************/
-void eventReleaseMutex(PPEVENT ppEvent)
+void eventReleaseMutex(ppevent_t ppEvent)
 {
     xSemaphoreHandle xSemaphore = *((xSemaphoreHandle*)ppEvent);
 

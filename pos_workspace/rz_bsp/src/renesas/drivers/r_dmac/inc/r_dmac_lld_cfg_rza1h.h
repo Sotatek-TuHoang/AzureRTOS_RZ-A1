@@ -28,8 +28,7 @@
  * History      : DD.MM.YYYY Version Description
  *              : 31.08.2018 1.00    First Release
  ******************************************************************************/
- #include "mcu_board_select.h"
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
+
 #include <limits.h>
 
 #ifndef R_DMAC_LLD_CFG_RZA1H_H_
@@ -150,5 +149,5 @@ typedef enum
     LAST_RESOURCE_MARKER,
     MAKE_ENUM_32BIT = INT_MAX               /*!< force enum to 32-bit type for struct alignment */
 } e_r_drv_dmac_xfer_resource_t;
-#endif
+
 #endif /* R_DMAC_LLD_CFG_RZA1H_H_ */

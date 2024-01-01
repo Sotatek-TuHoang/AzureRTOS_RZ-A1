@@ -461,7 +461,7 @@ os_task_t R_OS_CreateTask (const char_t *name, os_task_code_t task_code, void *p
 					(ULONG)stack_size,
 					priority,
 					(UINT)priority, /* Preempt threshold */
-					(ULONG)0ul,
+					(ULONG)8ul,
 					TX_AUTO_START) != TX_SUCCESS) {
 
 				tx_byte_release( thread_ptr );
@@ -724,22 +724,13 @@ void R_OS_FreeMem (void *p)
  * Return Value : The function returns TRUE if the semaphore object was successfully created
  *                Otherwise, FALSE is returned
  **********************************************************************************************************************/
-bool_t R_OS_CreateSemaphore (ppsemaphore_t semaphore_pptr, uint32_t count)
+bool_t R_OS_CreateSemaphore (psemaphore_t semaphore_ptr, uint32_t count)
 {
     bool_t ret = false;
 
-    if ( tx_byte_allocate( &p_os_byte_pooling, (VOID **) semaphore_pptr, sizeof (TX_SEMAPHORE), TX_NO_WAIT) == TX_SUCCESS) {
+	if ( tx_semaphore_create ( (TX_SEMAPHORE*) semaphore_ptr, OS_ABS_LAYER_NAME, (ULONG)count) == TX_SUCCESS )
+		ret = true;
 
-    	if ( tx_semaphore_create ( (TX_SEMAPHORE*) *semaphore_pptr, OS_ABS_LAYER_NAME, (ULONG)count) == TX_SUCCESS )
-    			ret = true;
-    	else {
-    		tx_byte_release( *semaphore_pptr );
-    		*semaphore_pptr = NULL;
-    	}
-
-    } else {
-    	*semaphore_pptr = NULL;
-    }
     return (ret);
 }
 /***********************************************************************************************************************
@@ -755,9 +746,6 @@ bool_t R_OS_CreateSemaphore (ppsemaphore_t semaphore_pptr, uint32_t count)
 void R_OS_DeleteSemaphore (psemaphore_t semaphore_ptr)
 {
 	tx_semaphore_delete ( (TX_SEMAPHORE*) semaphore_ptr );
-	tx_byte_release( semaphore_ptr );
-	semaphore_ptr = NULL;
-
 }
 /***********************************************************************************************************************
  End of function R_OS_DeleteSemaphore
@@ -837,9 +825,6 @@ void *R_OS_CreateMutex (void)
 void R_OS_DeleteMutex (void *p_mutex)
 {
 	tx_mutex_delete ( (TX_MUTEX*) p_mutex);
-	tx_byte_release( (TX_MUTEX*) p_mutex );
-	p_mutex = NULL;
-
 }
 /***********************************************************************************************************************
  End of function R_OS_DeleteMutex

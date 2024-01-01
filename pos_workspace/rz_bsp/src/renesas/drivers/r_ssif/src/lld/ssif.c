@@ -784,9 +784,9 @@ static int_t SSIF_InitChannel(ssif_info_ch_t* const p_info_ch)
         }
         else
         {
-            if (NULL != p_info_ch->sem_access)
+            if (0 != &p_info_ch->sem_access)
             {
-                R_OS_DeleteSemaphore(p_info_ch->sem_access);
+                R_OS_DeleteSemaphore(&p_info_ch->sem_access);
             }
         }
     }
@@ -840,7 +840,7 @@ static void SSIF_UnInitChannel(ssif_info_ch_t* const p_info_ch)
         ahf_destroy(&p_info_ch->rx_que);
 
         /* delete the private semaphore */
-        R_OS_DeleteSemaphore(p_info_ch->sem_access);
+        R_OS_DeleteSemaphore(&p_info_ch->sem_access);
 
         SSIF_InterruptShutdown(ssif_ch);
 

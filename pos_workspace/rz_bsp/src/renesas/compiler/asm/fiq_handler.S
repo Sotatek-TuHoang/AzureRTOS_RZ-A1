@@ -32,7 +32,7 @@
 /*******************************************************************************
 * History       : DD.MM.YYYY Version Description
 *               : 06.07.2016 1.00    Ported from RZA1H v1.01 (dated 3.7.15)
-*               : 15.10.2019 1.01    Removed errata and IRQ code due to IRQ code
+*               : 04.11.2019 1.01    Removed errata and IRQ code due to IRQ code
 *                                    now being located in FreeRTOS.
 *******************************************************************************/
 

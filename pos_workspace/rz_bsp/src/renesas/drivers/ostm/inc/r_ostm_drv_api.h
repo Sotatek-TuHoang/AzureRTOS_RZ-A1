@@ -26,7 +26,7 @@
  * @brief          OS timer driver API header
  * @version        1.00
  * @date           27.06.2018
- * H/W Platform    RZ/A1LU
+ * H/W Platform    RSK+RZA1H CPU Board
  *****************************************************************************/
  /*****************************************************************************
  * History      : DD.MM.YYYY Ver. Description
@@ -72,7 +72,7 @@
  *
  * @anchor OSTM_HLD_DRIVER_INSTANCES
  * @par Known Implementations
- * This driver is used in the RZA1LU Software Package.
+ * This driver is used in the RZA1H Software Package.
  * @ref RENESAS_APPLICATION_SOFTWARE_PACKAGE
  *
  * @anchor OSTM_HLD_DRIVER_RELATED

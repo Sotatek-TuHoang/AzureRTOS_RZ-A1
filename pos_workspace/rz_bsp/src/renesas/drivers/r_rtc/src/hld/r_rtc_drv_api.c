@@ -46,11 +46,7 @@ Includes   <System Includes> , "Project Includes"
 #include "r_devlink_wrapper.h"
 #include "r_os_abstraction_api.h"
 #include "trace.h"
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #include "r_rskrza1h_rtc_lld.h"
-#elif (TARGET_RZA1 <= TARGET_RZA1LU)
-#include "r_rskrza1lu_rtc_lld.h"
-#endif
 
 /* Adding this dependency ensures that this file is built every time because of the build counter */
 #include "version.h"

@@ -18,13 +18,13 @@
 * you agree to the additional terms and conditions found by accessing the
 * following link:
 * http://www.renesas.com/disclaimer*
-* Copyright (C) 2013-2016 Renesas Electronics Corporation. All rights reserved.
+* Copyright (C) 2013-2017 Renesas Electronics Corporation. All rights reserved.
 *******************************************************************************/
 /*******************************************************************************
 * File Name : rspi_iodefine.h
-* $Rev: 2941 $
-* $Date:: 2017-02-20 14:49:23 +0000#$
-* Description : Definition of I/O Register for RZ/A1LU (V3.00l)
+* $Rev: 29 $
+* $Date:: 2016-12-20 17:40:26 +0900#$
+* Description : Definition of I/O Register for RZ/A1H,M (V2.00h)
 ******************************************************************************/
 #ifndef RSPI_IODEFINE_H
 #define RSPI_IODEFINE_H
@@ -36,30 +36,20 @@
 #define RSPI0   (*(struct st_rspi    *)0xE800C800uL) /* RSPI0 */
 #define RSPI1   (*(struct st_rspi    *)0xE800D000uL) /* RSPI1 */
 #define RSPI2   (*(struct st_rspi    *)0xE800D800uL) /* RSPI2 */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define RSPI3   (*(struct st_rspi    *)0xE800E000uL) /* RSPI3 */
 #define RSPI4   (*(struct st_rspi    *)0xE800E800uL) /* RSPI4 */
-#endif
 
 
 /* Start of channel array defines of RSPI */
 
 /* Channel array defines of RSPI */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 /*(Sample) value = RSPI[ channel ]->SPCR; */
 #define RSPI_COUNT  (5)
 #define RSPI_ADDRESS_LIST \
 {   /* ->MISRA 11.3 */ /* ->SEC R2.7.1 */ \
     &RSPI0, &RSPI1, &RSPI2, &RSPI3, &RSPI4 \
 }   /* <-MISRA 11.3 */ /* <-SEC R2.7.1 */ /* { } is for MISRA 19.4 */
-#else
-/*(Sample) value = RSPI[ channel ]->SPCR; */
-#define RSPI_COUNT  (3)
-#define RSPI_ADDRESS_LIST \
-{   /* ->MISRA 11.3 */ /* ->SEC R2.7.1 */ \
-    &RSPI0, &RSPI1, &RSPI2 \
-}   /* <-MISRA 11.3 */ /* <-SEC R2.7.1 */ /* { } is for MISRA 19.4 */
-#endif
+
 /* End of channel array defines of RSPI */
 
 
@@ -135,7 +125,6 @@
 #define SPCMD3_2 (RSPI2.SPCMD3)
 #define SPBFCR_2 (RSPI2.SPBFCR)
 #define SPBFDR_2 (RSPI2.SPBFDR)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define SPCR_3 (RSPI3.SPCR)
 #define SSLP_3 (RSPI3.SSLP)
 #define SPPCR_3 (RSPI3.SPPCR)
@@ -184,7 +173,6 @@
 #define SPCMD3_4 (RSPI4.SPCMD3)
 #define SPBFCR_4 (RSPI4.SPBFCR)
 #define SPBFDR_4 (RSPI4.SPBFDR)
-#endif
 
 #define SPCMD_COUNT (4)
 

@@ -36,7 +36,7 @@
 /******************************************************************************
 Includes   <System Includes> , "Project Includes"
 *******************************************************************************/
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
+
 #include <stdio.h>
 
 #include "r_typedefs.h"             /* Default type definition header */
@@ -313,5 +313,5 @@ int32_t R_RTC_GetVersion(st_ver_info_t *pinfo)
 /*******************************************************************************
  End of function R_RTC_GetVersion
  ******************************************************************************/
-#endif
+
 /* End of File */

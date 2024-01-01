@@ -26,7 +26,7 @@
  * @brief          High Level Driver for RIIC
  * @version        1.00
  * @date           27.06.2018
- * H/W Platform    RZ/A1LU
+ * H/W Platform    RZ/A1
  *****************************************************************************/
  /*****************************************************************************
  * History      : DD.MM.YYYY Ver. Description

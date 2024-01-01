@@ -23,10 +23,10 @@
 
 *******************************************************************************
 * File Name    : version.h
-* Device(s)    : RZ/A1LU
+* Device(s)    : RZA1H
 * Tool-Chain   : GCC for Renesas RZ
 * OS           : FreeRTOS Version See src/freertos/include/FreeRTOS.h
-* H/W Platform : Stream it! v2 board
+* H/W Platform : RZ/A1H
 * Description  : The version release and build numbers.
 *                build version
 *                APPLICATION_INFO_VERSION.APPLICATION_INFO_RELEASE.APPLICATION_INFO_BUILD
@@ -36,6 +36,7 @@
 *              : 12.02.2016 1.10    Release 1.1 - includes USB CDC Support
 *              : 25.01.2018 1.02    First Release
 *              : 20.07.2018 3.01    First Release GCC build with sound demo
+*              : 31.10.2018 2.1     Website update
 ******************************************************************************/
 
 /******************************************************************************
@@ -55,9 +56,9 @@ Macro definitions
  * The following definitions are not surrounded by braces as the utility
  * buildinc does not recognise numbers surrounded in braces
 ******************************************************************************/
-#define APPLICATION_INFO_VERSION          3
+#define APPLICATION_INFO_VERSION          2
 #define APPLICATION_INFO_RELEASE          1
-#define APPLICATION_INFO_BUILD            93
+#define APPLICATION_INFO_BUILD            0
 
 
 

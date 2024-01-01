@@ -26,7 +26,7 @@
  * @brief          rspi module .h file
  * @version        1.00
  * @date           27.06.2018
- * H/W Platform    RZ/A1LU
+ * H/W Platform    RZ/A1
  *****************************************************************************/
  /*****************************************************************************
  * History      : DD.MM.YYYY Ver. Description
@@ -38,16 +38,16 @@
 #define R_SW_PKG_93_RSPI_API_H_INCLUDED
 /**************************************************************************//**
  * @ingroup R_SW_PKG_93_NONOS_DRIVERS
- * @defgroup R_SW_PKG_93_RSPI_API RSPI RZA1LU Driver
+ * @defgroup R_SW_PKG_93_RSPI_API RSPI RZA1 Driver
  *
  * @anchor R_SW_PKG_93_RSPI_API_SUMMARY
  * @par Summary
  *
- * This is a simple RSPI Driver developed for the RZA1LU Stream-IT board.
+ * This is a simple RSPI Driver developed for the RZA1 board.
  *
  * @anchor R_SW_PKG_93_RSPI_API_INSTANCES
  * @par Known Implementations:
- * This driver is used in the RZA1LU Software Package.
+ * This driver is used in the RZA1 Software Package.
  * @see RENESAS_APPLICATION_SOFTWARE_PACKAGE
  *
  * @see RENESAS_OS_ABSTRACTION  Renesas OS Abstraction interface

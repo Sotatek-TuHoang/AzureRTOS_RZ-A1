@@ -86,7 +86,7 @@ static uint16_t gs_channel_open[R_CH15] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 const st_r_driver_t g_riic_driver =
 { "I2C Device Driver", iic_hld_open, iic_hld_close, no_dev_io, no_dev_io, iic_hld_control, iic_hld_get_version };
 
-static psemaphore_t   iic_hld_sem;
+static semaphore_t   iic_hld_sem;
 
 /******************************************************************************
  Private global variables
@@ -140,7 +140,7 @@ static void iic_hld_close (st_stream_ptr_t p_stream)
     if (gs_channel_open[channel]  == 1)
     {
     	gs_channel_open[channel]  = 0;
-        R_OS_DeleteSemaphore(iic_hld_sem);
+        R_OS_DeleteSemaphore(&iic_hld_sem);
     }
 }
 /******************************************************************************
@@ -190,13 +190,13 @@ static int_t iic_hld_control (st_stream_ptr_t p_str, uint32_t ctl_code, void *p_
 
             case CTL_RIIC_READ:
             {
-                R_OS_WaitForSemaphore( iic_hld_sem, R_OS_ABSTRACTION_PRV_EV_WAIT_INFINITE );
+                R_OS_WaitForSemaphore( &iic_hld_sem, R_OS_ABSTRACTION_PRV_EV_WAIT_INFINITE );
 
                 /* cast control pointer to control struct */
                 st_r_drv_riic_config_t *p_i2c_read = (st_r_drv_riic_config_t *) p_ctl_struct;
                 int_t error = read_data(channel, p_i2c_read->device_address, p_i2c_read->sub_address,
                         p_i2c_read->number_of_bytes, p_i2c_read->p_data_buffer);
-                R_OS_ReleaseSemaphore( iic_hld_sem );
+                R_OS_ReleaseSemaphore( &iic_hld_sem );
 
                 if (DEVDRV_SUCCESS == error)
                 {
@@ -207,13 +207,13 @@ static int_t iic_hld_control (st_stream_ptr_t p_str, uint32_t ctl_code, void *p_
 
             case CTL_RIIC_READ_NEXT:
             {
-                R_OS_WaitForSemaphore( iic_hld_sem, R_OS_ABSTRACTION_PRV_EV_WAIT_INFINITE );
+                R_OS_WaitForSemaphore( &iic_hld_sem, R_OS_ABSTRACTION_PRV_EV_WAIT_INFINITE );
 
                 /* cast control pointer to control struct */
                 st_r_drv_riic_config_t *p_i2c_read = (st_r_drv_riic_config_t *) p_ctl_struct;
                 int_t error = read_next_data(channel, p_i2c_read->device_address,
                         p_i2c_read->number_of_bytes, p_i2c_read->p_data_buffer);
-                R_OS_ReleaseSemaphore( iic_hld_sem );
+                R_OS_ReleaseSemaphore( &iic_hld_sem );
 
                 if (DEVDRV_SUCCESS == error)
                 {
@@ -224,13 +224,13 @@ static int_t iic_hld_control (st_stream_ptr_t p_str, uint32_t ctl_code, void *p_
 
             case CTL_RIIC_WRITE:
             {
-                R_OS_WaitForSemaphore( iic_hld_sem, R_OS_ABSTRACTION_PRV_EV_WAIT_INFINITE );
+                R_OS_WaitForSemaphore( &iic_hld_sem, R_OS_ABSTRACTION_PRV_EV_WAIT_INFINITE );
 
                 /* cast control pointer to control struct */
                 st_r_drv_riic_config_t *p_i2c_write = (st_r_drv_riic_config_t *) p_ctl_struct;
                 int_t error = write_data(channel, p_i2c_write->device_address, p_i2c_write->sub_address,
                         p_i2c_write->number_of_bytes, p_i2c_write->p_data_buffer);
-                R_OS_ReleaseSemaphore( iic_hld_sem );
+                R_OS_ReleaseSemaphore( &iic_hld_sem );
 
                 if (DEVDRV_SUCCESS == error)
                 {

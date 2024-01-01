@@ -28,13 +28,11 @@
  * History      : DD.MM.YYYY Version Description
  *              : 31.08.2018 1.00    First Release
  ******************************************************************************/
-#include "mcu_board_select.h"
-#if ( TARGET_RZA1 <= TARGET_RZA1LU )
+
 #include <limits.h>
 
 #ifndef R_DMAC_LLD_CFG_RZA1L_H_
 #define R_DMAC_LLD_CFG_RZA1L_H_
-
 
 /******************************************************************************
  Macro definitions
@@ -82,12 +80,8 @@ typedef enum
 	DMA_RS_SSIRXI0,
 	DMA_RS_SSITXI1,
 	DMA_RS_SSIRXI1,
-#if 0 // 2022.04.27 modify
 	DMA_RS_SSITXI2,
 	DMA_RS_SSIRXI2,
-#else
-	DMA_RS_SSIRTI2,
-#endif
 	DMA_RS_SSITXI3,
 	DMA_RS_SSIRXI3,
 	DMA_RS_SCUTXI0,
@@ -129,5 +123,5 @@ typedef enum
     LAST_RESOURCE_MARKER,
     MAKE_ENUM_32BIT = INT_MAX               /*!< force enum to 32-bit type for struct alignment */
 } e_r_drv_dmac_xfer_resource_t;
-#endif
+
 #endif /* R_DMAC_LLD_CFG_RZA1L_H_ */

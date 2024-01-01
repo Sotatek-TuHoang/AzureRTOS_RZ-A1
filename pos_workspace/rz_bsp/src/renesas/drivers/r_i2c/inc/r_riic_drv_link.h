@@ -26,7 +26,7 @@
  * @brief          RIIC Link high-low level driver include file
  * @version        1.00
  * @date           27.06.2018
- * H/W Platform    RZ/A1LU Stream-IT
+ * H/W Platform    RZA1 CPU Board
  *****************************************************************************/
  /*****************************************************************************
  * History      : DD.MM.YYYY Ver. Description
@@ -39,9 +39,9 @@
 
  /*************************************************************************//**
  * @ingroup R_SW_PKG_93_POSIX_Drivers
- * @defgroup SSGSTARC_56_RIIC_API RZA1LU Stream-IT RIIC driver
+ * @defgroup SSGSTARC_56_RIIC_API RZA1 RIIC driver
  * @brief This interface provides access to the RIIC peripheral on the
- * RZA1LU Stream-IT board.
+ * RZA1 board.
  * See @ref SSGSTARC_56_RIIC_HLD_API for details.
  *
  * @anchor SSGSTARC_56_RIIC_API_LIMITATIONS

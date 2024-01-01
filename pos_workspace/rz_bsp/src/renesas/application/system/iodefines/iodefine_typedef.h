@@ -22,9 +22,9 @@
 *******************************************************************************/
 /*******************************************************************************
 * File Name : iodefine_typedef.h
-* $Rev: 2941 $
-* $Date:: 2017-02-20 14:49:23 +0000#$
-* Description : Definition of I/O Register for RZ/A1LU (V3.00l)
+* $Rev: 29 $
+* $Date:: 2016-12-20 17:40:26 +0900#$
+* Description : Definition of I/O Register for RZ/A1H,M (V2.00h)
 ******************************************************************************/
 #ifndef IODEFINE_TYPEDEF_H
 #define IODEFINE_TYPEDEF_H
@@ -42,7 +42,7 @@
 /***********************************************************************
 * Macro: IODEFINE_H_VERSION
 ************************************************************************/
-#define IODEFINE_H_VERSION  (300)
+#define IODEFINE_H_VERSION  (200)
 
 #define ACC_8B_MASK         (0xFFu)
 #define ACC_16B_MASK        (0xFFFFu)

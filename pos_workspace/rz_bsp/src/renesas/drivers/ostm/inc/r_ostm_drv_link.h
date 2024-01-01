@@ -31,7 +31,7 @@
 
 /*******************************************************************************************************************//**
  * @ingroup R_SW_PKG_93_POSIX_Drivers
- * @defgroup SSGSTARC_37_OSTM_DRIVER RZA1LU Stream-IT OSTM driver
+ * @defgroup SSGSTARC_37_OSTM_DRIVER RZA1H OSTM driver
  * @brief This interface provides access to the OSTM peripheral
  * See @ref OSTM_HLD_DRIVER for details.
  *

@@ -60,8 +60,6 @@ Macro definitions
 #define SIGEV_CALLBACK  (4) /**< An inter-process callback is made */
 
 #define NO_CACHE_SECTION 	VRAM_SECTION0
-//#define NO_CACHE_SECTION
-
 union sigval
 {
     int             sival_int;          /**< Integer interpretation */

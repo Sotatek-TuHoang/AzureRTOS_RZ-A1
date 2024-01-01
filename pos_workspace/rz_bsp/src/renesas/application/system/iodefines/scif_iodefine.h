@@ -18,13 +18,13 @@
 * you agree to the additional terms and conditions found by accessing the
 * following link:
 * http://www.renesas.com/disclaimer*
-* Copyright (C) 2013-2016 Renesas Electronics Corporation. All rights reserved.
+* Copyright (C) 2013-2017 Renesas Electronics Corporation. All rights reserved.
 *******************************************************************************/
 /*******************************************************************************
 * File Name : scif_iodefine.h
-* $Rev: 2941 $
-* $Date:: 2017-02-20 14:49:23 +0000#$
-* Description : Definition of I/O Register for RZ/A1LU (V3.00l)
+* $Rev: 29 $
+* $Date:: 2016-12-20 17:40:26 +0900#$
+* Description : Definition of I/O Register for RZ/A1H,M (V2.00h)
 ******************************************************************************/
 #ifndef SCIF_IODEFINE_H
 #define SCIF_IODEFINE_H
@@ -38,14 +38,13 @@
 #define SCIF2   (*(struct st_scif    *)0xE8008000uL) /* SCIF2 */
 #define SCIF3   (*(struct st_scif    *)0xE8008800uL) /* SCIF3 */
 #define SCIF4   (*(struct st_scif    *)0xE8009000uL) /* SCIF4 */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define SCIF5   (*(struct st_scif    *)0xE8009800uL) /* SCIF5 */
 #define SCIF6   (*(struct st_scif    *)0xE800A000uL) /* SCIF6 */
 #define SCIF7   (*(struct st_scif    *)0xE800A800uL) /* SCIF7 */
-#endif
+
 
 /* Start of channel array defines of SCIF */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
+
 /* Channel array defines of SCIF */
 /*(Sample) value = SCIF[ channel ]->SCSMR; */
 #define SCIF_COUNT  (8)
@@ -53,15 +52,7 @@
 {   /* ->MISRA 11.3 */ /* ->SEC R2.7.1 */ \
     &SCIF0, &SCIF1, &SCIF2, &SCIF3, &SCIF4, &SCIF5, &SCIF6, &SCIF7 \
 }   /* <-MISRA 11.3 */ /* <-SEC R2.7.1 */ /* { } is for MISRA 19.4 */
-#else
-/* Channel array defines of SCIF */
-/*(Sample) value = SCIF[ channel ]->SCSMR; */
-#define SCIF_COUNT  (5)
-#define SCIF_ADDRESS_LIST \
-{   /* ->MISRA 11.3 */ /* ->SEC R2.7.1 */ \
-    &SCIF0, &SCIF1, &SCIF2, &SCIF3, &SCIF4 \
-}   /* <-MISRA 11.3 */ /* <-SEC R2.7.1 */ /* { } is for MISRA 19.4 */
-#endif
+
 /* End of channel array defines of SCIF */
 
 
@@ -120,7 +111,6 @@
 #define SCSPTR_4 (SCIF4.SCSPTR)
 #define SCLSR_4 (SCIF4.SCLSR)
 #define SCEMR_4 (SCIF4.SCEMR)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define SCSMR_5 (SCIF5.SCSMR)
 #define SCBRR_5 (SCIF5.SCBRR)
 #define SCSCR_5 (SCIF5.SCSCR)
@@ -154,7 +144,7 @@
 #define SCSPTR_7 (SCIF7.SCSPTR)
 #define SCLSR_7 (SCIF7.SCLSR)
 #define SCEMR_7 (SCIF7.SCEMR)
-#endif
+
 
 typedef struct st_scif
 {

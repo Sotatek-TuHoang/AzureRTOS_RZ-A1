@@ -32,7 +32,7 @@
  *                 high layer code.
  * @version        1.00
  * @date           27.06.2018
- * H/W Platform    RZ/A1LU
+ * H/W Platform    RZA1H
  *****************************************************************************/
  /*****************************************************************************
  * History      : DD.MM.YYYY Ver. Description
@@ -58,7 +58,7 @@
  *
  * @anchor LED_SC_IF_INSTANCES
  * @par Known Implementations
- * This driver is used in the RZA1LU Software Package.
+ * This driver is used in the RZA1H Software Package.
  * @ref RENESAS_APPLICATION_SOFTWARE_PACKAGE
  * @{
  *****************************************************************************/

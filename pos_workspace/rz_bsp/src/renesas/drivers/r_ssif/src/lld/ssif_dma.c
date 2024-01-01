@@ -30,11 +30,12 @@
 /******************************************************************************
  Includes <System Includes>, "Project Includes"
  *****************************************************************************/
-#include "mcu_board_select.h"
 #include "ssif.h"
 #include "ssif_int.h"
 #include "fcntl.h"
 #include "Renesas_RZ_A1.h"
+#include "mcu_board_select.h"
+
 #include "r_dmac_drv_api.h"
 
 /******************************************************************************

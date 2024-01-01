@@ -72,35 +72,123 @@ endif
 endif
 
 -include ../makefile.defs
+define \n
 
+
+endef
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all:
-	$(MAKE) --no-print-directory pre-build
-	$(MAKE) --no-print-directory main-build
-
-# Main-build Target
-main-build: libguix.a secondary-outputs
+all: libguix.a
 
 # Tool invocations
 libguix.a: $(OBJS) $(USER_OBJS)
-	$(file > libguix.a.in,-r  "libguix.a" @"guix.a.in")
-	@echo Building target: $@ && arm-none-eabi-ar @"libguix.a.in"
+	$(foreach lib, $^, arm-none-eabi-ar -r "libguix.a" $(lib)${\n})
 # Other Targets
 clean:
-	-$(file > clean_file.tmp,  $(JMP_DEPS)  $(FSY_DEPS)  $(C_UPPER_DEPS)  $(ARCHIVES)  $(SRC_UPPER_DEPS)  $(P_UPPER_DEPS)  $(S_DEPS)  $(LST)  $(PP_UPPER_DEPS)  $(P_DEPS)  $(FSY_UPPER_DEPS)  $(C_DEPS)  $(SRC_DEPS)  $(JMP_UPPER_DEPS)  $(PP_DEPS)  $(ASM_UPPER_DEPS)  $(SX_DEPS)  $(SX_UPPER_DEPS)  $(OBJS)  $(ASM_DEPS)  $(S_UPPER_DEPS)  $(MAP) )
-	-@ xargs -P 2 -s 32000 -t -a clean_file.tmp $(RM)
-	-@$(RM) clean_file.tmp
+ifneq ($(strip $(JMP_DEPS)),)
+	-$(file > clean_JMP_DEPS.tmp, $(JMP_DEPS))
+	-@ xargs -s 6000 -t -a clean_JMP_DEPS.tmp $(RM)
+	-@$(RM) clean_JMP_DEPS.tmp
+endif
+ifneq ($(strip $(FSY_DEPS)),)
+	-$(file > clean_FSY_DEPS.tmp, $(FSY_DEPS))
+	-@ xargs -s 6000 -t -a clean_FSY_DEPS.tmp $(RM)
+	-@$(RM) clean_FSY_DEPS.tmp
+endif
+ifneq ($(strip $(C_UPPER_DEPS)),)
+	-$(file > clean_C_UPPER_DEPS.tmp, $(C_UPPER_DEPS))
+	-@ xargs -s 6000 -t -a clean_C_UPPER_DEPS.tmp $(RM)
+	-@$(RM) clean_C_UPPER_DEPS.tmp
+endif
+ifneq ($(strip $(ARCHIVES)),)
+	-$(file > clean_ARCHIVES.tmp, $(ARCHIVES))
+	-@ xargs -s 6000 -t -a clean_ARCHIVES.tmp $(RM)
+	-@$(RM) clean_ARCHIVES.tmp
+endif
+ifneq ($(strip $(SRC_UPPER_DEPS)),)
+	-$(file > clean_SRC_UPPER_DEPS.tmp, $(SRC_UPPER_DEPS))
+	-@ xargs -s 6000 -t -a clean_SRC_UPPER_DEPS.tmp $(RM)
+	-@$(RM) clean_SRC_UPPER_DEPS.tmp
+endif
+ifneq ($(strip $(P_UPPER_DEPS)),)
+	-$(file > clean_P_UPPER_DEPS.tmp, $(P_UPPER_DEPS))
+	-@ xargs -s 6000 -t -a clean_P_UPPER_DEPS.tmp $(RM)
+	-@$(RM) clean_P_UPPER_DEPS.tmp
+endif
+ifneq ($(strip $(S_DEPS)),)
+	-$(file > clean_S_DEPS.tmp, $(S_DEPS))
+	-@ xargs -s 6000 -t -a clean_S_DEPS.tmp $(RM)
+	-@$(RM) clean_S_DEPS.tmp
+endif
+ifneq ($(strip $(PP_UPPER_DEPS)),)
+	-$(file > clean_PP_UPPER_DEPS.tmp, $(PP_UPPER_DEPS))
+	-@ xargs -s 6000 -t -a clean_PP_UPPER_DEPS.tmp $(RM)
+	-@$(RM) clean_PP_UPPER_DEPS.tmp
+endif
+ifneq ($(strip $(P_DEPS)),)
+	-$(file > clean_P_DEPS.tmp, $(P_DEPS))
+	-@ xargs -s 6000 -t -a clean_P_DEPS.tmp $(RM)
+	-@$(RM) clean_P_DEPS.tmp
+endif
+ifneq ($(strip $(FSY_UPPER_DEPS)),)
+	-$(file > clean_FSY_UPPER_DEPS.tmp, $(FSY_UPPER_DEPS))
+	-@ xargs -s 6000 -t -a clean_FSY_UPPER_DEPS.tmp $(RM)
+	-@$(RM) clean_FSY_UPPER_DEPS.tmp
+endif
+ifneq ($(strip $(C_DEPS)),)
+	-$(file > clean_C_DEPS.tmp, $(C_DEPS))
+	-@ xargs -s 6000 -t -a clean_C_DEPS.tmp $(RM)
+	-@$(RM) clean_C_DEPS.tmp
+endif
+ifneq ($(strip $(SRC_DEPS)),)
+	-$(file > clean_SRC_DEPS.tmp, $(SRC_DEPS))
+	-@ xargs -s 6000 -t -a clean_SRC_DEPS.tmp $(RM)
+	-@$(RM) clean_SRC_DEPS.tmp
+endif
+ifneq ($(strip $(JMP_UPPER_DEPS)),)
+	-$(file > clean_JMP_UPPER_DEPS.tmp, $(JMP_UPPER_DEPS))
+	-@ xargs -s 6000 -t -a clean_JMP_UPPER_DEPS.tmp $(RM)
+	-@$(RM) clean_JMP_UPPER_DEPS.tmp
+endif
+ifneq ($(strip $(PP_DEPS)),)
+	-$(file > clean_PP_DEPS.tmp, $(PP_DEPS))
+	-@ xargs -s 6000 -t -a clean_PP_DEPS.tmp $(RM)
+	-@$(RM) clean_PP_DEPS.tmp
+endif
+ifneq ($(strip $(ASM_UPPER_DEPS)),)
+	-$(file > clean_ASM_UPPER_DEPS.tmp, $(ASM_UPPER_DEPS))
+	-@ xargs -s 6000 -t -a clean_ASM_UPPER_DEPS.tmp $(RM)
+	-@$(RM) clean_ASM_UPPER_DEPS.tmp
+endif
+ifneq ($(strip $(SX_DEPS)),)
+	-$(file > clean_SX_DEPS.tmp, $(SX_DEPS))
+	-@ xargs -s 6000 -t -a clean_SX_DEPS.tmp $(RM)
+	-@$(RM) clean_SX_DEPS.tmp
+endif
+ifneq ($(strip $(SX_UPPER_DEPS)),)
+	-$(file > clean_SX_UPPER_DEPS.tmp, $(SX_UPPER_DEPS))
+	-@ xargs -s 6000 -t -a clean_SX_UPPER_DEPS.tmp $(RM)
+	-@$(RM) clean_SX_UPPER_DEPS.tmp
+endif
+ifneq ($(strip $(OBJS)),)
+	-$(file > clean_OBJS.tmp, $(OBJS))
+	-@ xargs -s 6000 -t -a clean_OBJS.tmp $(RM)
+	-@$(RM) clean_OBJS.tmp
+endif
+ifneq ($(strip $(ASM_DEPS)),)
+	-$(file > clean_ASM_DEPS.tmp, $(ASM_DEPS))
+	-@ xargs -s 6000 -t -a clean_ASM_DEPS.tmp $(RM)
+	-@$(RM) clean_ASM_DEPS.tmp
+endif
+ifneq ($(strip $(S_UPPER_DEPS)),)
+	-$(file > clean_S_UPPER_DEPS.tmp, $(S_UPPER_DEPS))
+	-@ xargs -s 6000 -t -a clean_S_UPPER_DEPS.tmp $(RM)
+	-@$(RM) clean_S_UPPER_DEPS.tmp
+endif
 	-$(RM)  libguix.a
 	-@echo ' '
 
-pre-build:
-	-@$(file > guix.a.in,$(OBJS) $(USER_OBJS) $(LIBS))
-	-@echo ' '
-
-secondary-outputs:
-
-.PHONY: all clean dependents  main-build pre-build
+.PHONY: all clean dependents 
 
 -include ../makefile.targets

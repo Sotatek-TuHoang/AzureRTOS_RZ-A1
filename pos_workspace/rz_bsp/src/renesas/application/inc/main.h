@@ -22,7 +22,7 @@
 *******************************************************************************/
 /*******************************************************************************
 * File Name    : main.h
-* Device(s)    : RZ/A1LU
+* Device(s)    : RZA1H
 * Tool-Chain   : GCC for Renesas RZ
 * OS           : FreeRTOS Version See src/freertos/include/FreeRTOS.h
 * H/W Platform : Stream it! v2 board

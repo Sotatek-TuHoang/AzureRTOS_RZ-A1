@@ -26,7 +26,7 @@
  * @brief          ssif low level interface header file
  * @version        1.00
  * @date           27.06.2018
- * H/W Platform    RZA1LU Steam-IT
+ * H/W Platform    RZA1H
  *****************************************************************************/
 /*****************************************************************************
  * History      : DD.MM.YYYY Ver. Description
@@ -61,7 +61,6 @@
 Includes   <System Includes> , "Project Includes"
 ******************************************************************************/
 
-#include "cmsis_os.h"
 #include "r_typedefs.h"
 #include "r_errno.h"
 #include "r_typedefs.h"

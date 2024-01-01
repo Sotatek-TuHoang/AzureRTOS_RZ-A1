@@ -18,13 +18,13 @@
 * you agree to the additional terms and conditions found by accessing the
 * following link:
 * http://www.renesas.com/disclaimer*
-* Copyright (C) 2013-2016 Renesas Electronics Corporation. All rights reserved.
+* Copyright (C) 2013-2017 Renesas Electronics Corporation. All rights reserved.
 *******************************************************************************/
 /*******************************************************************************
 * File Name : wdt_iodefine.h
-* $Rev: 2941 $
-* $Date:: 2017-02-20 14:49:23 +0000#$
-* Description : Definition of I/O Register for RZ/A1LU (V3.00l)
+* $Rev: 29 $
+* $Date:: 2016-12-20 17:40:26 +0900#$
+* Description : Definition of I/O Register for RZ/A1H,M (V2.00h)
 ******************************************************************************/
 #ifndef WDT_IODEFINE_H
 #define WDT_IODEFINE_H

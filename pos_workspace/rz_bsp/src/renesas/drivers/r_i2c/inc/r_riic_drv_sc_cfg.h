@@ -27,7 +27,7 @@
  *                 the low layer driver.
  * @version        1.00
  * @date           27.06.2018
- * H/W Platform    RZ/A1LU Stream-IT
+ * H/W Platform    RZA1 CPU Board
  *****************************************************************************/
 /*****************************************************************************
  * History      : DD.MM.YYYY Ver. Description

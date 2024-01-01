@@ -39,7 +39,7 @@
 #define R_CEU_PL_H
 /**************************************************************************//**
  * @ingroup R_SW_PKG_93_NONOS_DRIVERS
- * @defgroup R_SW_PKG_93_CEU_PL ADC RZA1LU Driver Porting File
+ * @defgroup R_SW_PKG_93_CEU_PL ADC RZA1H and RZ/A1LU Driver Porting File
  *
  * @anchor R_SW_PKG_93_CEU_PL_SUMMARY
  * @par Summary
@@ -50,7 +50,7 @@
  *
  * @anchor R_SW_PKG_93_CEU_PL_INSTANCES
  * @par Known Implementations:
- * This driver is used in the RZA1LU Software Package.
+ * This driver is used in the RZA1H and RZ/A1LU Software Package.
  * @see RENESAS_APPLICATION_SOFTWARE_PACKAGE
  * @see RENESAS_OS_ABSTRACTION  Renesas OS Abstraction interface
  * @{

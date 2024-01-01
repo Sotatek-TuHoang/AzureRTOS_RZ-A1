@@ -44,7 +44,7 @@ PROJECT_NUMBER         = 0.1
 # for a project that appears at the top of each page and should give viewer a
 # quick idea about the purpose of the project. Keep the description short.
 
-PROJECT_BRIEF          = "SDK for Camera sample program running on the Framework that supports a Stream it! RZ V2.0 with an RZ/A series RZ/A1LU group MCU"
+PROJECT_BRIEF          = "Software Package that supports a [Renesas Starter Kit + for RZ/A1H] with an RZ/A series RZ/A1H group MCU"
 
 # With the PROJECT_LOGO tag one can specify a logo or an icon that is included
 # in the documentation. The maximum height of the logo should not exceed 55

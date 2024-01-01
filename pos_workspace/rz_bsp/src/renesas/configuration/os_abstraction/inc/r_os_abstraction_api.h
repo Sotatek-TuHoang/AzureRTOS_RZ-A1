@@ -111,9 +111,6 @@ typedef TX_SEMAPHORE semaphore_t;
 /** pointer to semaphore handle object */
 typedef semaphore_t* psemaphore_t;
 
-/** pointer to semaphore handle object */
-typedef psemaphore_t* ppsemaphore_t;
-
 /* mutext handle */
 typedef void* pmutex_t;
 
@@ -276,7 +273,7 @@ void   R_OS_FreeMem(void *p);
  *  @param[in] count The maximum count for the semaphore object. This value must be greater than zero
  *  @return    The function returns TRUE if the semaphore object was successfully created. Otherwise, FALSE is returned
  */
-bool_t R_OS_CreateSemaphore (ppsemaphore_t semaphore_ptr, uint32_t count);
+bool_t R_OS_CreateSemaphore (psemaphore_t semaphore_ptr, uint32_t count);
 
 /** OS Abstraction DeleteSemaphore Function
  *  @brief     Delete a semaphore, freeing any associated resources.

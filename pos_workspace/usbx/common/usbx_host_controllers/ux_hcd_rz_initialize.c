@@ -25,18 +25,11 @@
 
 #define UX_SOURCE_CODE
 
-#include "fcntl.h"
 #include "ux_api.h"
 #include "ux_hcd_rz.h"
 #include "ux_system.h"
 #include "ux_utility.h"
 
-#include "r_dmac_drv_api.h"
-#include "iodefine.h"
-
-/* DMA driver */
-int_t dma_usb_out_handle = -1;
-int_t dma_usb_in_handle = -1;
 
 /**************************************************************************/ 
 /*                                                                        */ 
@@ -91,7 +84,7 @@ TX_INTERRUPT_SAVE_AREA
 UX_HCD_RZ           *hcd_rz;
 UINT                status;
 ULONG               buf1, buf2, buf3;
-st_r_drv_dmac_config_t dma_config;
+
 
     /* Call low-level setup RZ.  */
     _ux_hcd_rz_low_level_setup();
@@ -190,7 +183,7 @@ st_r_drv_dmac_config_t dma_config;
     /* xFIFOSEL initialization.  */
     _ux_hcd_rz_register_set(hcd_rz, UX_RZ_HC_CFIFOSEL, UX_RZ_HC_CFIFOSEL_RCNT | UX_RZ_HC_CFIFOSEL_MBW_8);
     _ux_hcd_rz_register_set(hcd_rz, UX_RZ_HC_D0FIFOSEL,UX_RZ_HC_DFIFOSEL_MBW_8);
-    _ux_hcd_rz_register_set(hcd_rz, UX_RZ_HC_D1FIFOSEL,UX_RZ_HC_DFIFOSEL_MBW_8);
+   _ux_hcd_rz_register_set(hcd_rz, UX_RZ_HC_D1FIFOSEL,UX_RZ_HC_DFIFOSEL_MBW_8);
    
     /* Set the controller to operational mode.  */
     hcd -> ux_hcd_status =  UX_HCD_STATUS_OPERATIONAL;
@@ -209,135 +202,36 @@ st_r_drv_dmac_config_t dma_config;
 
 #ifdef UX_RZ_HCD_USE_DMA
     
-
-#if 1
     /* Reset DMA TX channel.  */
     _ux_hcd_rz_dma_register_write(hcd_rz, UX_RZ_DMA_CHCTRL(UX_RZ_DMA_TX_CH),
                                   UX_RZ_DMA_CHCTRL_CLREN | UX_RZ_DMA_CHCTRL_SWRST);
 
-#if UX_RZ_USB_BASE == UX_RZ_USB0_BASE
     /* Select peripheral trigger for DMA TX channel.  */
-    _ux_hcd_rz_dma_register_write(hcd_rz, UX_RZ_DMA_TX_RS, UX_RZ_DMA_USB0_TX_RS_VALUE);
-#else
-    _ux_hcd_rz_dma_register_write(hcd_rz, UX_RZ_DMA_TX_RS, UX_RZ_DMA_USB1_TX_RS_VALUE);	/* UX_RZ_DMA_RS0 lower(ch0), 0x8B */
-#endif
+    _ux_hcd_rz_dma_register_write(hcd_rz, UX_RZ_DMA_TX_RS, UX_RZ_DMA_TX_RS_VALUE);
 
     /* Configure DMA TX channel.  */
-#if 1	/* grape */
-    _ux_hcd_rz_dma_register_write(hcd_rz, UX_RZ_DMA_CHCFG(UX_RZ_DMA_TX_CH),
-                              (UX_RZ_DMA_TX_CH & 0x7) | 				/* SEL[2:0] */
-                              UX_RZ_DMA_CHCFG_REQD |	/* (1<<3) */	/* REQD[3] */	/* grape add */
-							  	  	  	  	  	  	  	  	  	  	  	/* LOEN[4] 0 default??? */
-							  UX_RZ_DMA_CHCFG_HIEN |	/* (1<<5) */	/* HIEN[5] */
-                              UX_RZ_DMA_CHCFG_LVL | 	/* (1<<6) */	/* LVL[6] */
-// grape del                                      (0x1<<8) |
-                                                  (0x2<<8) |	/* AM[8:10] bus cycle mode */ /* grape add */
-/* grape del */                                            (0x2<<12) |	/* SDS[15:12] 32bit */
-/* grape del */                                            (0x2<<16) |	/* DDS[19:16] 32bit */
-// grape del							UX_RZ_DMA_CHCFG_SAD	/* (1<<20) */	/* SAD[20] source address fix */
-					          UX_RZ_DMA_CHCFG_DAD		/* (1<<21) */	/* DAD[21] destination address fix */	/* grape add */
-																/* TM[22] single transfer mode (default) */
-																/* DEM[24] comp. interrupt NO mask (default ) */
-																/* SBE[27] quit transfer without flash (default) */
-																/* RSEL[28] Next0 (default) */
-																/* RSW[29] NO flip RSEL after comp. (default) */
-																/* REN[30] 0 default??? */
-																/* DMS[31] register mode (default) */
-	);
-#else
     _ux_hcd_rz_dma_register_write(hcd_rz, UX_RZ_DMA_CHCFG(UX_RZ_DMA_TX_CH),
                               (UX_RZ_DMA_TX_CH & 0x7) | 
+                              (0x2<<8) | 
                               UX_RZ_DMA_CHCFG_LVL | 
                               UX_RZ_DMA_CHCFG_HIEN |
-							  (0x1<<8) |
-                              (0x2<<12) | (0x2<<16) |
-                              UX_RZ_DMA_CHCFG_SAD);
-#endif
+                              UX_RZ_DMA_CHCFG_REQD | 
+                              UX_RZ_DMA_CHCFG_DAD);
 
-#else
-    dma_usb_out_handle = open(DEVICE_INDENTIFIER "dma_usb_out", O_WRONLY);
-
-    dma_config.config.resource = DMA_RS_USB0_DMA0_TX;                                    /* DMA transfer resource */
-	dma_config.config.source_width = DMA_DATA_SIZE_4;                                                /* DMA transfer unit size (source) - 32 bits */
-	dma_config.config.destination_width = DMA_DATA_SIZE_4;                                           /* DMA transfer unit size (destination) - 32 bits */
-	dma_config.config.source_address_type = DMA_ADDRESS_INCREMENT;                                   /* DMA address type (source) */
-	dma_config.config.destination_address_type = DMA_ADDRESS_FIX;                                    /* DMA address type (destination) */
-	dma_config.config.direction = DMA_REQUEST_SOURCE;                                                /* DMA transfer direction will be set by the driver */
-	dma_config.config.source_address = 0x00000000;           /* Source Address */
-	dma_config.config.destination_address = USB200.D0FIFO; /* Destination Address */
-	dma_config.config.count = 0;                             /* length */
-	dma_config.config.p_dmaComplete = _ux_hcd_rz_dma_tx_interrupt_handler;                                           /* set callback function (DMA end interrupt) */
-
-	control(dma_usb_out_handle, CTL_DMAC_SET_CONFIGURATION, (void *) &dma_config);
-
-	close(dma_usb_out_handle);
-#endif
-
-#if 1
     /* Reset DMA RX channel.  */
     _ux_hcd_rz_dma_register_write(hcd_rz, UX_RZ_DMA_CHCTRL(UX_RZ_DMA_RX_CH),
                                   UX_RZ_DMA_CHCTRL_CLREN | UX_RZ_DMA_CHCTRL_SWRST);
-#if UX_RZ_USB_BASE == UX_RZ_USB0_BASE
+
     /* Select peripheral trigger for DMA RX channel.  */
-    _ux_hcd_rz_dma_register_set(hcd_rz, UX_RZ_DMA_RX_RS, UX_RZ_DMA_USB0_RX_RS_VALUE);
-#else
-#if 1	/* grape */
-    _ux_hcd_rz_dma_register_set(hcd_rz, UX_RZ_DMA_RX_RS, 0x8B<<16);	/* UX_RZ_DMA_RS0 high(ch1), 0x8F<<16 */
-#else
-    _ux_hcd_rz_dma_register_set(hcd_rz, UX_RZ_DMA_RX_RS, UX_RZ_DMA_USB1_RX_RS_VALUE);
-#endif
-#endif
+    _ux_hcd_rz_dma_register_set(hcd_rz, UX_RZ_DMA_RX_RS, UX_RZ_DMA_RX_RS_VALUE);
 
     /* Configure DMA RX channel.  */
-#if 1	/* grape */
-    _ux_hcd_rz_dma_register_write(hcd_rz, UX_RZ_DMA_CHCFG(UX_RZ_DMA_RX_CH),
-                              (UX_RZ_DMA_RX_CH & 0x7) | 				/* SEL[2:0] */
-// grape del                  UX_RZ_DMA_CHCFG_REQD |	/* (1<<3) */	/* REQD[3] */
-							  	  	  	  	  	  	  	  	  	  	  	/* LOEN[4] 0 default??? */
-                              UX_RZ_DMA_CHCFG_HIEN |	/* (1<<5) */	/* HIEN[5] */
-							  UX_RZ_DMA_CHCFG_LVL | /* (1<<6) */		/* LVL[6] */ /* grape add */
-                                                           (0x2<<8) |	/* AM[8:10] */
-/* grape del */                                             (0x2<<12) |	/* SDS[15:12] 32bit */
-/* grape del */                                             (0x2<<16) |	/* DDS[19:16] 32 bit */
-// grape del														   	   	   	    /* SAD[20] source address increment (default) */
-							  UX_RZ_DMA_CHCFG_SAD /* (1<<20) */		/* SAD[20] source address fix */
-//* grape del */							  UX_RZ_DMA_CHCFG_DAD		/* (1<<21) */	/* DAD[21] destination address fix */
-// grape del															/* TM[22] single transfer mode (default) */
-																		/* DEM[24] comp. interrupt NO mask (default ) */
-																		/* SBE[27] quit transfer without flash (default) */
-																		/* RSEL[28] Next0 (default) */
-																		/* RSW[29] NO flip RSEL after comp. (default) */
-																		/* REN[30] 0 default??? */
-																		/* DMS[31] register mode (default) */
-    						  );
-#else
     _ux_hcd_rz_dma_register_write(hcd_rz, UX_RZ_DMA_CHCFG(UX_RZ_DMA_RX_CH),
                               (UX_RZ_DMA_RX_CH & 0x7) | 
-							  UX_RZ_DMA_CHCFG_REQD |
+                              (0x2<<8) | 
+                              UX_RZ_DMA_CHCFG_LVL | 
                               UX_RZ_DMA_CHCFG_HIEN |
-							  (0x2<<8) |
-							  (0x2<<12) | (0x2<<16) |
-							  UX_RZ_DMA_CHCFG_DAD);
-#endif
-
-#else
-    dma_usb_in_handle = open(DEVICE_INDENTIFIER "dma_usb_in", O_WRONLY);
-
-    dma_config.config.resource = DMA_RS_USB0_DMA0_RX;                                    /* DMA transfer resource */
-	dma_config.config.source_width = DMA_DATA_SIZE_4;                                                /* DMA transfer unit size (source) - 32 bits */
-	dma_config.config.destination_width = DMA_DATA_SIZE_4;                                           /* DMA transfer unit size (destination) - 32 bits */
-	dma_config.config.source_address_type = DMA_ADDRESS_INCREMENT;                                   /* DMA address type (source) */
-	dma_config.config.destination_address_type = DMA_ADDRESS_FIX;                                    /* DMA address type (destination) */
-	dma_config.config.direction = DMA_REQUEST_SOURCE;                                                /* DMA transfer direction will be set by the driver */
-	dma_config.config.source_address = USB200.D1FIFO;           /* Source Address */
-	dma_config.config.destination_address = 0x00000000; /* Destination Address */
-	dma_config.config.count = 0;                             /* length */
-	dma_config.config.p_dmaComplete = _ux_hcd_rz_dma_rx_interrupt_handler;                                           /* set callback function (DMA end interrupt) */
-
-	control(dma_usb_in_handle, CTL_DMAC_SET_CONFIGURATION, (void *) &dma_config);
-
-	close(dma_usb_in_handle);
-#endif
+                              UX_RZ_DMA_CHCFG_SAD);
 #endif
 
     TX_DISABLE

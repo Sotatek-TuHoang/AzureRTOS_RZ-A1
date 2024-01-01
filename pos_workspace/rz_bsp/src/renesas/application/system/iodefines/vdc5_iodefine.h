@@ -18,13 +18,13 @@
 * you agree to the additional terms and conditions found by accessing the
 * following link:
 * http://www.renesas.com/disclaimer*
-* Copyright (C) 2013-2016 Renesas Electronics Corporation. All rights reserved.
+* Copyright (C) 2013-2017 Renesas Electronics Corporation. All rights reserved.
 *******************************************************************************/
 /*******************************************************************************
 * File Name : vdc5_iodefine.h
-* $Rev: 2941 $
-* $Date:: 2017-02-20 14:49:23 +0000#$
-* Description : Definition of I/O Register for RZ/A1LU (V3.00l)
+* $Rev: 29 $
+* $Date:: 2016-12-20 17:40:26 +0900#$
+* Description : Definition of I/O Register for RZ/A1H,M (V2.00h)
 ******************************************************************************/
 #ifndef VDC5_IODEFINE_H
 #define VDC5_IODEFINE_H
@@ -34,57 +34,35 @@
 /* ->SEC M1.10.1 : Not magic number */
 
 #define VDC50   (*(struct st_vdc5    *)0xFCFF7400uL) /* VDC50 */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define VDC51   (*(struct st_vdc5    *)0xFCFF9400uL) /* VDC51 */
-#endif
 
 
 /* Start of channel array defines of VDC5 */
 
 /* Channel array defines of VDC5 */
 /*(Sample) value = VDC5[ channel ]->INP_UPDATE; */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define VDC5_COUNT  (2)
 #define VDC5_ADDRESS_LIST \
 {   /* ->MISRA 11.3 */ /* ->SEC R2.7.1 */ \
     &VDC50, &VDC51 \
 }   /* <-MISRA 11.3 */ /* <-SEC R2.7.1 */ /* { } is for MISRA 19.4 */
-#else
-#define VDC5_COUNT  (1)
-#define VDC5_ADDRESS_LIST \
-{   /* ->MISRA 11.3 */ /* ->SEC R2.7.1 */ \
-    &VDC50 \
-}   /* <-MISRA 11.3 */ /* <-SEC R2.7.1 */ /* { } is for MISRA 19.4 */
-#endif
+
 
 
 /* Channel array defines of VDC50_FROM_GR2_AB7_ARRAY */
 /*(Sample) value = VDC50_FROM_GR2_AB7_ARRAY[ channel ][ index ]->GR0_AB7; */
 #define VDC50_FROM_GR2_AB7_ARRAY_COUNT  (2)
-
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define VDC50_FROM_GR2_AB7_ARRAY_ADDRESS_LIST \
 {   /* ->MISRA 11.3 */ /* ->SEC R2.7.1 */ \
 { \
-	&VDC50_FROM_GR2_AB7, &VDC50_FROM_GR3_AB7 },{ \
+    &VDC50_FROM_GR2_AB7, &VDC50_FROM_GR3_AB7 },{ \
     &VDC51_FROM_GR2_AB7, &VDC51_FROM_GR3_AB7 \
 } \
 }   /* <-MISRA 11.3 */ /* <-SEC R2.7.1 */ /* { } is for MISRA 19.4 */
-#else
-#define VDC50_FROM_GR2_AB7_ARRAY_ADDRESS_LIST \
-{   /* ->MISRA 11.3 */ /* ->SEC R2.7.1 */ \
-{ \
-    &VDC50_FROM_GR2_AB7, &VDC50_FROM_GR3_AB7 \
-} \
-}
-#endif
-
 #define VDC50_FROM_GR2_AB7 (*(struct st_vdc5_from_gr0_ab7 *)&VDC50.GR2_AB7) /* VDC50_FROM_GR2_AB7 */
 #define VDC50_FROM_GR3_AB7 (*(struct st_vdc5_from_gr0_ab7 *)&VDC50.GR3_AB7) /* VDC50_FROM_GR3_AB7 */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define VDC51_FROM_GR2_AB7 (*(struct st_vdc5_from_gr0_ab7 *)&VDC51.GR2_AB7) /* VDC51_FROM_GR2_AB7 */
 #define VDC51_FROM_GR3_AB7 (*(struct st_vdc5_from_gr0_ab7 *)&VDC51.GR3_AB7) /* VDC51_FROM_GR3_AB7 */
-#endif
 
 
 
@@ -92,8 +70,6 @@
 /* Channel array defines of VDC50_FROM_GR2_UPDATE_ARRAY */
 /*(Sample) value = VDC50_FROM_GR2_UPDATE_ARRAY[ channel ][ index ]->GR0_UPDATE; */
 #define VDC50_FROM_GR2_UPDATE_ARRAY_COUNT  (2)
-
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define VDC50_FROM_GR2_UPDATE_ARRAY_ADDRESS_LIST \
 {   /* ->MISRA 11.3 */ /* ->SEC R2.7.1 */ \
 { \
@@ -101,25 +77,14 @@
     &VDC51_FROM_GR2_UPDATE, &VDC51_FROM_GR3_UPDATE \
 } \
 }   /* <-MISRA 11.3 */ /* <-SEC R2.7.1 */ /* { } is for MISRA 19.4 */
-#else
-#define VDC50_FROM_GR2_UPDATE_ARRAY_ADDRESS_LIST \
-{   /* ->MISRA 11.3 */ /* ->SEC R2.7.1 */ \
-{ \
-    &VDC50_FROM_GR2_UPDATE, &VDC50_FROM_GR3_UPDATE \
-} \
-}   /* <-MISRA 11.3 */ /* <-SEC R2.7.1 */ /* { } is for MISRA 19.4 */
-#endif
-
 #define VDC50_FROM_GR2_UPDATE (*(struct st_vdc5_from_gr0_update *)&VDC50.GR2_UPDATE) /* VDC50_FROM_GR2_UPDATE */
 #define VDC50_FROM_GR3_UPDATE (*(struct st_vdc5_from_gr0_update *)&VDC50.GR3_UPDATE) /* VDC50_FROM_GR3_UPDATE */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define VDC51_FROM_GR2_UPDATE (*(struct st_vdc5_from_gr0_update *)&VDC51.GR2_UPDATE) /* VDC51_FROM_GR2_UPDATE */
 #define VDC51_FROM_GR3_UPDATE (*(struct st_vdc5_from_gr0_update *)&VDC51.GR3_UPDATE) /* VDC51_FROM_GR3_UPDATE */
-#endif
 
 
 
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
+
 /* Channel array defines of VDC50_FROM_SC0_SCL1_PBUF0_ARRAY */
 /*(Sample) value = VDC50_FROM_SC0_SCL1_PBUF0_ARRAY[ channel ][ index ]->SC0_SCL1_PBUF0; */
 #define VDC50_FROM_SC0_SCL1_PBUF0_ARRAY_COUNT  (2)
@@ -170,54 +135,31 @@
 #define VDC50_FROM_ADJ1_UPDATE (*(struct st_vdc5_from_adj0_update *)&VDC50.ADJ1_UPDATE) /* VDC50_FROM_ADJ1_UPDATE */
 #define VDC51_FROM_ADJ0_UPDATE (*(struct st_vdc5_from_adj0_update *)&VDC51.ADJ0_UPDATE) /* VDC51_FROM_ADJ0_UPDATE */
 #define VDC51_FROM_ADJ1_UPDATE (*(struct st_vdc5_from_adj0_update *)&VDC51.ADJ1_UPDATE) /* VDC51_FROM_ADJ1_UPDATE */
-#endif
+
+
+
+
 /* Channel array defines of VDC50_FROM_GR0_AB7_ARRAY */
 /*(Sample) value = VDC50_FROM_GR0_AB7_ARRAY[ channel ][ index ]->GR0_AB7; */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define VDC50_FROM_GR0_AB7_ARRAY_COUNT  (2)
-#else
-#define VDC50_FROM_GR0_AB7_ARRAY_COUNT  (3)
-#endif
-
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define VDC50_FROM_GR0_AB7_ARRAY_ADDRESS_LIST \
 {   /* ->MISRA 11.3 */ /* ->SEC R2.7.1 */ \
 { \
-	&VDC50_FROM_GR0_AB7, &VDC50_FROM_GR1_AB7 },{ \
+    &VDC50_FROM_GR0_AB7, &VDC50_FROM_GR1_AB7 },{ \
     &VDC51_FROM_GR0_AB7, &VDC51_FROM_GR1_AB7 \
-	} \
-	}   /* <-MISRA 11.3 */ /* <-SEC R2.7.1 */ /* { } is for MISRA 19.4 */
-#else
-#define VDC50_FROM_GR0_AB7_ARRAY_ADDRESS_LIST \
-{   /* ->MISRA 11.3 */ /* ->SEC R2.7.1 */ \
-{ \
-    &VDC50_FROM_GR0_AB7, &VDC50_FROM_GR2_AB7, &VDC50_FROM_GR3_AB7 \
 } \
 }   /* <-MISRA 11.3 */ /* <-SEC R2.7.1 */ /* { } is for MISRA 19.4 */
-#endif
-
 #define VDC50_FROM_GR0_AB7 (*(struct st_vdc5_from_gr0_ab7 *)&VDC50.GR0_AB7) /* VDC50_FROM_GR0_AB7 */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define VDC50_FROM_GR1_AB7 (*(struct st_vdc5_from_gr0_ab7 *)&VDC50.GR1_AB7) /* VDC50_FROM_GR1_AB7 */
 #define VDC51_FROM_GR0_AB7 (*(struct st_vdc5_from_gr0_ab7 *)&VDC51.GR0_AB7) /* VDC51_FROM_GR0_AB7 */
 #define VDC51_FROM_GR1_AB7 (*(struct st_vdc5_from_gr0_ab7 *)&VDC51.GR1_AB7) /* VDC51_FROM_GR1_AB7 */
-#else
-#define VDC50_FROM_GR2_AB7 (*(struct st_vdc5_from_gr0_ab7 *)&VDC50.GR2_AB7) /* VDC50_FROM_GR2_AB7 */
-#define VDC50_FROM_GR3_AB7 (*(struct st_vdc5_from_gr0_ab7 *)&VDC50.GR3_AB7) /* VDC50_FROM_GR3_AB7 */
-#endif
 
 
 
 
 /* Channel array defines of VDC50_FROM_GR0_UPDATE_ARRAY */
 /*(Sample) value = VDC50_FROM_GR0_UPDATE_ARRAY[ channel ][ index ]->GR0_UPDATE; */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define VDC50_FROM_GR0_UPDATE_ARRAY_COUNT  (2)
-#else
-#define VDC50_FROM_GR0_UPDATE_ARRAY_COUNT  (3)
-#endif
-
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define VDC50_FROM_GR0_UPDATE_ARRAY_ADDRESS_LIST \
 {   /* ->MISRA 11.3 */ /* ->SEC R2.7.1 */ \
 { \
@@ -225,23 +167,10 @@
     &VDC51_FROM_GR0_UPDATE, &VDC51_FROM_GR1_UPDATE \
 } \
 }   /* <-MISRA 11.3 */ /* <-SEC R2.7.1 */ /* { } is for MISRA 19.4 */
-#else
-#define VDC50_FROM_GR0_UPDATE_ARRAY_ADDRESS_LIST \
-{   /* ->MISRA 11.3 */ /* ->SEC R2.7.1 */ \
-{ \
-    &VDC50_FROM_GR0_UPDATE, &VDC50_FROM_GR2_UPDATE, &VDC50_FROM_GR3_UPDATE \
-} \
-}   /* <-MISRA 11.3 */ /* <-SEC R2.7.1 */ /* { } is for MISRA 19.4 */
-#endif
 #define VDC50_FROM_GR0_UPDATE (*(struct st_vdc5_from_gr0_update *)&VDC50.GR0_UPDATE) /* VDC50_FROM_GR0_UPDATE */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define VDC50_FROM_GR1_UPDATE (*(struct st_vdc5_from_gr0_update *)&VDC50.GR1_UPDATE) /* VDC50_FROM_GR1_UPDATE */
 #define VDC51_FROM_GR0_UPDATE (*(struct st_vdc5_from_gr0_update *)&VDC51.GR0_UPDATE) /* VDC51_FROM_GR0_UPDATE */
 #define VDC51_FROM_GR1_UPDATE (*(struct st_vdc5_from_gr0_update *)&VDC51.GR1_UPDATE) /* VDC51_FROM_GR1_UPDATE */
-#else
-#define VDC50_FROM_GR2_UPDATE (*(struct st_vdc5_from_gr0_update *)&VDC50.GR2_UPDATE) /* VDC50_FROM_GR2_UPDATE */
-#define VDC50_FROM_GR3_UPDATE (*(struct st_vdc5_from_gr0_update *)&VDC50.GR3_UPDATE) /* VDC50_FROM_GR3_UPDATE */
-#endif
 
 
 /* End of channel array defines of VDC5 */
@@ -262,9 +191,7 @@
 #define VDC50IMGCNT_MTX_CBB_ADJ1 (VDC50.IMGCNT_MTX_CBB_ADJ1)
 #define VDC50IMGCNT_MTX_CRR_ADJ0 (VDC50.IMGCNT_MTX_CRR_ADJ0)
 #define VDC50IMGCNT_MTX_CRR_ADJ1 (VDC50.IMGCNT_MTX_CRR_ADJ1)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define VDC50IMGCNT_DRC_REG (VDC50.IMGCNT_DRC_REG)
-#endif
 #define VDC50SC0_SCL0_UPDATE (VDC50.SC0_SCL0_UPDATE)
 #define VDC50SC0_SCL0_FRC1 (VDC50.SC0_SCL0_FRC1)
 #define VDC50SC0_SCL0_FRC2 (VDC50.SC0_SCL0_FRC2)
@@ -495,17 +422,12 @@
 #define VDC50OUT_CLK_PHASE (VDC50.OUT_CLK_PHASE)
 #define VDC50SYSCNT_INT1 (VDC50.SYSCNT_INT1)
 #define VDC50SYSCNT_INT2 (VDC50.SYSCNT_INT2)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define VDC50SYSCNT_INT3 (VDC50.SYSCNT_INT3)
-#endif
 #define VDC50SYSCNT_INT4 (VDC50.SYSCNT_INT4)
 #define VDC50SYSCNT_INT5 (VDC50.SYSCNT_INT5)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define VDC50SYSCNT_INT6 (VDC50.SYSCNT_INT6)
-#endif
 #define VDC50SYSCNT_PANEL_CLK (VDC50.SYSCNT_PANEL_CLK)
 #define VDC50SYSCNT_CLUT (VDC50.SYSCNT_CLUT)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define VDC50SC1_SCL0_UPDATE (VDC50.SC1_SCL0_UPDATE)
 #define VDC50SC1_SCL0_FRC1 (VDC50.SC1_SCL0_FRC1)
 #define VDC50SC1_SCL0_FRC2 (VDC50.SC1_SCL0_FRC2)
@@ -595,9 +517,7 @@
 #define VDC50ADJ1_MTX_CRR_ADJ0 (VDC50.ADJ1_MTX_CRR_ADJ0)
 #define VDC50ADJ1_MTX_CRR_ADJ1 (VDC50.ADJ1_MTX_CRR_ADJ1)
 #define VDC50GR_VIN_UPDATE (VDC50.GR_VIN_UPDATE)
-#endif
 #define VDC50GR_VIN_AB1 (VDC50.GR_VIN_AB1)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define VDC50GR_VIN_AB2 (VDC50.GR_VIN_AB2)
 #define VDC50GR_VIN_AB3 (VDC50.GR_VIN_AB3)
 #define VDC50GR_VIN_AB4 (VDC50.GR_VIN_AB4)
@@ -1044,7 +964,7 @@
 #define VDC51GR_OIR_BASE (VDC51.GR_OIR_BASE)
 #define VDC51GR_OIR_CLUT (VDC51.GR_OIR_CLUT)
 #define VDC51GR_OIR_MON (VDC51.GR_OIR_MON)
-#endif
+
 #define VDC5_IMGCNT_NR_CNT0_COUNT (2)
 #define VDC5_SC0_SCL0_FRC1_COUNT (7)
 #define VDC5_SC0_SCL0_DS1_COUNT (7)
@@ -1074,7 +994,6 @@
 #define VDC5_TCON_TIM_POLA1_COUNT (2)
 #define VDC5_TCON_TIM_POLB1_COUNT (2)
 #define VDC5_OUT_BRIGHT1_COUNT (2)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define VDC5_SYSCNT_INT1_COUNT (6)
 #define VDC5_SC1_SCL0_FRC1_COUNT (7)
 #define VDC5_SC1_SC1_SCL0_DS1_COUNT (7)
@@ -1092,11 +1011,6 @@
 #define VDC5_OIR_SCL1_WR1_COUNT (4)
 #define VDC5_GR_OIR_FLM1_COUNT (6)
 #define VDC5_GR_OIR_AB1_COUNT (3)
-#else
-#define VDC5_SYSCNT_INT1_COUNT (2)
-
-#define VDC5_GR_VIN_AB1_COUNT (1)
-#endif
 
 
 typedef struct st_vdc5
@@ -1121,13 +1035,10 @@ typedef struct st_vdc5
     volatile uint32_t  IMGCNT_MTX_CBB_ADJ1;                    /*  IMGCNT_MTX_CBB_ADJ1 */
     volatile uint32_t  IMGCNT_MTX_CRR_ADJ0;                    /*  IMGCNT_MTX_CRR_ADJ0 */
     volatile uint32_t  IMGCNT_MTX_CRR_ADJ1;                    /*  IMGCNT_MTX_CRR_ADJ1 */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint8_t   dummy3[4];                              /*                  */
     volatile uint32_t  IMGCNT_DRC_REG;                         /*  IMGCNT_DRC_REG  */
     volatile uint8_t   dummy4[60];                             /*                  */
-#else
-    volatile uint8_t   dummy3[68];                             /*                  */
-#endif
+
 /* start of struct st_vdc5_from_sc0_scl0_update */
     volatile uint32_t  SC0_SCL0_UPDATE;                        /*  SC0_SCL0_UPDATE */
 
@@ -1139,11 +1050,7 @@ typedef struct st_vdc5
     volatile uint32_t  SC0_SCL0_FRC5;                          /*  SC0_SCL0_FRC5   */
     volatile uint32_t  SC0_SCL0_FRC6;                          /*  SC0_SCL0_FRC6   */
     volatile uint32_t  SC0_SCL0_FRC7;                          /*  SC0_SCL0_FRC7   */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint8_t   dummy5[4];                              /*                  */
-#else
-    volatile uint8_t   dummy4[4];                              /*                  */
-#endif
     volatile uint32_t  SC0_SCL0_FRC9;                          /*  SC0_SCL0_FRC9   */
     volatile uint16_t SC0_SCL0_MON0;                          /*  SC0_SCL0_MON0   */
     volatile uint16_t SC0_SCL0_INT;                           /*  SC0_SCL0_INT    */
@@ -1166,30 +1073,18 @@ typedef struct st_vdc5
     volatile uint32_t  SC0_SCL0_US6;                           /*  SC0_SCL0_US6    */
     volatile uint32_t  SC0_SCL0_US7;                           /*  SC0_SCL0_US7    */
     volatile uint32_t  SC0_SCL0_US8;                           /*  SC0_SCL0_US8    */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint8_t   dummy6[4];                              /*                  */
     volatile uint32_t  SC0_SCL0_OVR1;                          /*  SC0_SCL0_OVR1   */
     volatile uint8_t   dummy7[16];                             /*                  */
     volatile uint32_t  SC0_SCL1_UPDATE;                        /*  SC0_SCL1_UPDATE */
     volatile uint8_t   dummy8[4];                              /*                  */
-#else
-    volatile uint8_t   dummy5[4];                              /*                  */
-    volatile uint32_t  SC0_SCL0_OVR1;                          /*  SC0_SCL0_OVR1   */
-    volatile uint8_t   dummy6[16];                             /*                  */
-    volatile uint32_t  SC0_SCL1_UPDATE;                        /*  SC0_SCL1_UPDATE */
-    volatile uint8_t   dummy7[4];                              /*                  */
-#endif
 
 /* #define VDC5_SC0_SCL1_WR1_COUNT (4) */
     volatile uint32_t  SC0_SCL1_WR1;                           /*  SC0_SCL1_WR1    */
     volatile uint32_t  SC0_SCL1_WR2;                           /*  SC0_SCL1_WR2    */
     volatile uint32_t  SC0_SCL1_WR3;                           /*  SC0_SCL1_WR3    */
     volatile uint32_t  SC0_SCL1_WR4;                           /*  SC0_SCL1_WR4    */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint8_t   dummy9[4];                              /*                  */
-#else
-    volatile uint8_t   dummy8[4];                              /*                  */
-#endif
     volatile uint32_t  SC0_SCL1_WR5;                           /*  SC0_SCL1_WR5    */
     volatile uint32_t  SC0_SCL1_WR6;                           /*  SC0_SCL1_WR6    */
     volatile uint32_t  SC0_SCL1_WR7;                           /*  SC0_SCL1_WR7    */
@@ -1210,12 +1105,9 @@ typedef struct st_vdc5
     volatile uint32_t  SC0_SCL1_PBUF3;                         /*  SC0_SCL1_PBUF3  */
     volatile uint32_t  SC0_SCL1_PBUF_FLD;                      /*  SC0_SCL1_PBUF_FLD */
     volatile uint32_t  SC0_SCL1_PBUF_CNT;                      /*  SC0_SCL1_PBUF_CNT */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
-	/* end of struct st_vdc5_from_sc0_scl1_pbuf0 */
+
+/* end of struct st_vdc5_from_sc0_scl1_pbuf0 */
     volatile uint8_t   dummy10[44];                            /*                  */
-#else
-    volatile uint8_t   dummy9[44];                             /*                  */
-#endif
 
 /* start of struct st_vdc5_from_gr0_update */
     volatile uint32_t  GR0_UPDATE;                             /*  GR0_UPDATE      */
@@ -1235,11 +1127,7 @@ typedef struct st_vdc5
     volatile uint32_t  GR0_AB3;                                /*  GR0_AB3         */
 
 /* end of struct st_vdc5_from_gr0_update */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint8_t   dummy11[12];                            /*                  */
-#else
-    volatile uint8_t   dummy10[12];                            /*                  */
-#endif
 
 /* start of struct st_vdc5_from_gr0_ab7 */
     volatile uint32_t  GR0_AB7;                                /*  GR0_AB7         */
@@ -1251,11 +1139,8 @@ typedef struct st_vdc5
 
 /* end of struct st_vdc5_from_gr0_ab7 */
     volatile uint32_t  GR0_CLUT;                               /*  GR0_CLUT        */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint8_t   dummy12[44];                            /*                  */
-#else
-    volatile uint8_t   dummy11[44];                            /*                  */
-#endif
+
 /* start of struct st_vdc5_from_adj0_update */
     volatile uint32_t  ADJ0_UPDATE;                            /*  ADJ0_UPDATE     */
     volatile uint32_t  ADJ0_BKSTR_SET;                         /*  ADJ0_BKSTR_SET  */
@@ -1283,13 +1168,9 @@ typedef struct st_vdc5
     volatile uint32_t  ADJ0_MTX_CBB_ADJ1;                      /*  ADJ0_MTX_CBB_ADJ1 */
     volatile uint32_t  ADJ0_MTX_CRR_ADJ0;                      /*  ADJ0_MTX_CRR_ADJ0 */
     volatile uint32_t  ADJ0_MTX_CRR_ADJ1;                      /*  ADJ0_MTX_CRR_ADJ1 */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
+
 /* end of struct st_vdc5_from_adj0_update */
     volatile uint8_t   dummy13[48];                            /*                  */
-#else
-    volatile uint8_t   dummy12[48];                            /*                  */
-#endif
-/* start of struct st_vdc5_from_gr0_update */
 
 /* start of struct st_vdc5_from_gr0_update */
     volatile uint32_t  GR2_UPDATE;                             /*  GR2_UPDATE      */
@@ -1309,13 +1190,9 @@ typedef struct st_vdc5
     volatile uint32_t  GR2_AB3;                                /*  GR2_AB3         */
 
 /* end of struct st_vdc5_from_gr0_update */
-
-/* end of struct st_vdc5_from_gr0_update */
     volatile uint32_t  GR2_AB4;                                /*  GR2_AB4         */
     volatile uint32_t  GR2_AB5;                                /*  GR2_AB5         */
     volatile uint32_t  GR2_AB6;                                /*  GR2_AB6         */
-
-/* start of struct st_vdc5_from_gr0_ab7 */
 
 /* start of struct st_vdc5_from_gr0_ab7 */
     volatile uint32_t  GR2_AB7;                                /*  GR2_AB7         */
@@ -1326,16 +1203,9 @@ typedef struct st_vdc5
     volatile uint32_t  GR2_BASE;                               /*  GR2_BASE        */
 
 /* end of struct st_vdc5_from_gr0_ab7 */
-
-/* end of struct st_vdc5_from_gr0_ab7 */
     volatile uint32_t  GR2_CLUT;                               /*  GR2_CLUT        */
     volatile uint32_t  GR2_MON;                                /*  GR2_MON         */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint8_t   dummy14[40];                            /*                  */
-#else
-    volatile uint8_t   dummy13[40];                            /*                  */
-#endif
-/* start of struct st_vdc5_from_gr0_update */
 
 /* start of struct st_vdc5_from_gr0_update */
     volatile uint32_t  GR3_UPDATE;                             /*  GR3_UPDATE      */
@@ -1355,13 +1225,9 @@ typedef struct st_vdc5
     volatile uint32_t  GR3_AB3;                                /*  GR3_AB3         */
 
 /* end of struct st_vdc5_from_gr0_update */
-
-/* end of struct st_vdc5_from_gr0_update */
     volatile uint32_t  GR3_AB4;                                /*  GR3_AB4         */
     volatile uint32_t  GR3_AB5;                                /*  GR3_AB5         */
     volatile uint32_t  GR3_AB6;                                /*  GR3_AB6         */
-
-/* start of struct st_vdc5_from_gr0_ab7 */
 
 /* start of struct st_vdc5_from_gr0_ab7 */
     volatile uint32_t  GR3_AB7;                                /*  GR3_AB7         */
@@ -1372,15 +1238,9 @@ typedef struct st_vdc5
     volatile uint32_t  GR3_BASE;                               /*  GR3_BASE        */
 
 /* end of struct st_vdc5_from_gr0_ab7 */
-
-/* end of struct st_vdc5_from_gr0_ab7 */
     volatile uint32_t  GR3_CLUT_INT;                           /*  GR3_CLUT_INT    */
     volatile uint32_t  GR3_MON;                                /*  GR3_MON         */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint8_t   dummy15[40];                            /*                  */
-#else
-    volatile uint8_t   dummy14[40];                            /*                  */
-#endif
     volatile uint32_t  GAM_G_UPDATE;                           /*  GAM_G_UPDATE    */
     volatile uint32_t  GAM_SW;                                 /*  GAM_SW          */
 
@@ -1411,15 +1271,10 @@ typedef struct st_vdc5
     volatile uint32_t  GAM_G_AREA6;                            /*  GAM_G_AREA6     */
     volatile uint32_t  GAM_G_AREA7;                            /*  GAM_G_AREA7     */
     volatile uint32_t  GAM_G_AREA8;                            /*  GAM_G_AREA8     */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint8_t   dummy16[24];                            /*                  */
     volatile uint32_t  GAM_B_UPDATE;                           /*  GAM_B_UPDATE    */
     volatile uint8_t   dummy17[4];                             /*                  */
-#else
-    volatile uint8_t   dummy15[24];                            /*                  */
-    volatile uint32_t  GAM_B_UPDATE;                           /*  GAM_B_UPDATE    */
-    volatile uint8_t   dummy16[4];                             /*                  */
-#endif
+
 /* #define VDC5_GAM_B_LUT1_COUNT (16) */
     volatile uint32_t  GAM_B_LUT1;                             /*  GAM_B_LUT1      */
     volatile uint32_t  GAM_B_LUT2;                             /*  GAM_B_LUT2      */
@@ -1447,15 +1302,10 @@ typedef struct st_vdc5
     volatile uint32_t  GAM_B_AREA6;                            /*  GAM_B_AREA6     */
     volatile uint32_t  GAM_B_AREA7;                            /*  GAM_B_AREA7     */
     volatile uint32_t  GAM_B_AREA8;                            /*  GAM_B_AREA8     */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint8_t   dummy18[24];                            /*                  */
     volatile uint32_t  GAM_R_UPDATE;                           /*  GAM_R_UPDATE    */
     volatile uint8_t   dummy19[4];                             /*                  */
-#else
-    volatile uint8_t   dummy17[24];                            /*                  */
-    volatile uint32_t  GAM_R_UPDATE;                           /*  GAM_R_UPDATE    */
-    volatile uint8_t   dummy18[4];                             /*                  */
-#endif
+
 /* #define VDC5_GAM_R_LUT1_COUNT (16) */
     volatile uint32_t  GAM_R_LUT1;                             /*  GAM_R_LUT1      */
     volatile uint32_t  GAM_R_LUT2;                             /*  GAM_R_LUT2      */
@@ -1483,11 +1333,7 @@ typedef struct st_vdc5
     volatile uint32_t  GAM_R_AREA6;                            /*  GAM_R_AREA6     */
     volatile uint32_t  GAM_R_AREA7;                            /*  GAM_R_AREA7     */
     volatile uint32_t  GAM_R_AREA8;                            /*  GAM_R_AREA8     */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint8_t   dummy20[24];                            /*                  */
-#else
-    volatile uint8_t   dummy19[24];                            /*                  */
-#endif
     volatile uint32_t  TCON_UPDATE;                            /*  TCON_UPDATE     */
     volatile uint32_t  TCON_TIM;                               /*  TCON_TIM        */
 
@@ -1519,11 +1365,7 @@ typedef struct st_vdc5
     volatile uint32_t  TCON_TIM_POLB1;                         /*  TCON_TIM_POLB1  */
     volatile uint32_t  TCON_TIM_POLB2;                         /*  TCON_TIM_POLB2  */
     volatile uint32_t  TCON_TIM_DE;                            /*  TCON_TIM_DE     */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint8_t   dummy21[60];                            /*                  */
-#else
-    volatile uint8_t   dummy20[60];                            /*                  */
-#endif
     volatile uint32_t  OUT_UPDATE;                             /*  OUT_UPDATE      */
     volatile uint32_t  OUT_SET;                                /*  OUT_SET         */
 
@@ -1532,7 +1374,6 @@ typedef struct st_vdc5
     volatile uint32_t  OUT_BRIGHT2;                            /*  OUT_BRIGHT2     */
     volatile uint32_t  OUT_CONTRAST;                           /*  OUT_CONTRAST    */
     volatile uint32_t  OUT_PDTHA;                              /*  OUT_PDTHA       */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint8_t   dummy22[12];                            /*                  */
     volatile uint32_t  OUT_CLK_PHASE;                          /*  OUT_CLK_PHASE   */
     volatile uint8_t   dummy23[88];                            /*                  */
@@ -1762,28 +1603,6 @@ typedef struct st_vdc5
     volatile uint32_t  GR_OIR_BASE;                            /*  GR_OIR_BASE     */
     volatile uint32_t  GR_OIR_CLUT;                            /*  GR_OIR_CLUT     */
     volatile uint32_t  GR_OIR_MON;                             /*  GR_OIR_MON      */
-#else	
-    volatile uint8_t   dummy21[12];                            /*                  */
-    volatile uint32_t  OUT_CLK_PHASE;                          /*  OUT_CLK_PHASE   */
-    volatile uint8_t   dummy22[88];                            /*                  */
-
-/* #define VDC5_SYSCNT_INT1_COUNT (2) */
-    volatile uint32_t  SYSCNT_INT1;                            /*  SYSCNT_INT1     */
-    volatile uint32_t  SYSCNT_INT2;                            /*  SYSCNT_INT2     */
-    volatile uint8_t   dummy23[4];                             /*                  */
-    volatile uint32_t  SYSCNT_INT4;                            /*  SYSCNT_INT4     */
-    volatile uint32_t  SYSCNT_INT5;                            /*  SYSCNT_INT5     */
-    volatile uint8_t   dummy24[4];                             /*                  */
-    volatile uint16_t SYSCNT_PANEL_CLK;                       /*  SYSCNT_PANEL_CLK */
-    volatile uint16_t SYSCNT_CLUT;                            /*  SYSCNT_CLUT     */
-    volatile uint8_t   dummy25[868];                           /*                  */
-    volatile uint32_t  GR_VIN_UPDATE;                          /*  GR_VIN_UPDATE   */
-    volatile uint8_t   dummy26[28];                            /*                  */
-
-/* #define VDC5_GR_VIN_AB1_COUNT (1) */
-    volatile uint32_t  GR_VIN_AB1;                             /*  GR_VIN_AB1      */
-
-#endif
 } r_io_vdc5_t;
 
 
@@ -1815,7 +1634,7 @@ typedef struct st_vdc5_from_gr0_ab7
     volatile uint32_t  GR0_BASE;                               /*  GR0_BASE        */
 } r_io_vdc5_from_gr0_ab7_t;
 
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
+
 typedef struct st_vdc5_from_adj0_update
 {
  
@@ -1901,7 +1720,8 @@ typedef struct st_vdc5_from_sc0_scl1_pbuf0
     volatile uint32_t  SC0_SCL1_PBUF_FLD;                      /*  SC0_SCL1_PBUF_FLD */
     volatile uint32_t  SC0_SCL1_PBUF_CNT;                      /*  SC0_SCL1_PBUF_CNT */
 } r_io_vdc5_from_sc0_scl1_pbuf0_t;
-#endif
+
+
 /* Channel array defines of VDC5 (2)*/
 #ifdef  DECLARE_VDC5_CHANNELS
 volatile struct st_vdc5*  VDC5[ VDC5_COUNT ] =
@@ -1924,7 +1744,6 @@ volatile struct st_vdc5_from_gr0_update*  VDC50_FROM_GR2_UPDATE_ARRAY[ VDC5_COUN
     /* <-MISRA 11.3 */ /* <-SEC R2.7.1 */
 #endif  /* DECLARE_VDC50_FROM_GR2_UPDATE_ARRAY_CHANNELS */
 
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #ifdef  DECLARE_VDC50_FROM_SC0_SCL1_PBUF0_ARRAY_CHANNELS
 volatile struct st_vdc5_from_sc0_scl1_pbuf0*  VDC50_FROM_SC0_SCL1_PBUF0_ARRAY[ VDC5_COUNT ][ VDC50_FROM_SC0_SCL1_PBUF0_ARRAY_COUNT ] =
     /* ->MISRA 11.3 */ /* ->SEC R2.7.1 */
@@ -1946,7 +1765,6 @@ volatile struct st_vdc5_from_adj0_update*  VDC50_FROM_ADJ0_UPDATE_ARRAY[ VDC5_CO
     /* <-MISRA 11.3 */ /* <-SEC R2.7.1 */
 #endif  /* DECLARE_VDC50_FROM_ADJ0_UPDATE_ARRAY_CHANNELS */
 
-#endif
 #ifdef  DECLARE_VDC50_FROM_GR0_AB7_ARRAY_CHANNELS
 volatile struct st_vdc5_from_gr0_ab7*  VDC50_FROM_GR0_AB7_ARRAY[ VDC5_COUNT ][ VDC50_FROM_GR0_AB7_ARRAY_COUNT ] =
     /* ->MISRA 11.3 */ /* ->SEC R2.7.1 */

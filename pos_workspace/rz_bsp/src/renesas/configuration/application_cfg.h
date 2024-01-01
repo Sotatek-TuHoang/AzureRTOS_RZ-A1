@@ -19,18 +19,19 @@
  * accessing the following link:
  * http://www.renesas.com/disclaimer
  *******************************************************************************
- * Copyright (C) 2018 Renesas Electronics Corporation. All rights reserved.
+ * Copyright (C) 2019 Renesas Electronics Corporation. All rights reserved.
  *****************************************************************************/
 /******************************************************************************
  * @headerfile     application_cfg.h
  * @brief          Overall control of system state
  * @version        1.00
- * @date           27.06.2018
- * H/W Platform    RZ/A1LU Stream it! v2 board
+ * @date           24.04.2019
+ * H/W Platform    Renesas Starter Kit+ for RZ/A1H
  *****************************************************************************/
 /*****************************************************************************
  * History      : DD.MM.YYYY Ver. Description
  *              : 30.06.2018 1.00 First Release
+ *              : 24.04.2019 2.00 Porting for RZ/A1H
  *****************************************************************************/
 
 /* Multiple inclusion prevention macro */

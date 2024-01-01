@@ -19,17 +19,18 @@
  * accessing the following link:
  * http://www.renesas.com/disclaimer
  *******************************************************************************
- * Copyright (C) 2018 Renesas Electronics Corporation. All rights reserved.
+ * Copyright (C) 2019 Renesas Electronics Corporation. All rights reserved.
  *****************************************************************************/
 /******************************************************************************
  * @headerfile     r_devlink_wrapper_cfg.h
  * @brief          Define and Configure driver sub system
  * @version        1.00
- * @date           27.06.2018
+ * @date           24.04.2019
  *****************************************************************************/
 /*****************************************************************************
  * History      : DD.MM.YYYY Ver. Description
  *              : 30.06.2018 1.00 First Release
+ *              : 24.04.2019 2.00 Porting for RZ/A1H
  *****************************************************************************/
 
 /* Multiple inclusion prevention macro */
@@ -163,6 +164,9 @@ static st_mount_table_t gs_mount_table[] =
    {"dma_ssif_wr", (st_r_driver_t *)&g_dmac_driver, R_SC0},
    {"dma_ssif_rd", (st_r_driver_t *)&g_dmac_driver, R_SC1},
 
+   /** USB DMA driver added by USER */
+   {"dma_usb_in", (st_r_driver_t *) &g_dmac_driver, R_SC2},
+   {"dma_usb_out", (st_r_driver_t *) &g_dmac_driver, R_SC3},
 
 #if R_SELF_INSERT_APP_PMOD
    /** PMOD driver added by USER */

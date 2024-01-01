@@ -65,7 +65,7 @@
  *
  * @anchor R_SW_PKG_93_SSIF_API_INSTANCES
  * @par Known Implementations:
- * This driver is used in the RZA1LU Software Package.
+ * This driver is used in the RZA1H Software Package.
  * @ref RENESAS_APPLICATION_SOFTWARE_PACKAGE
  *
  * @ref R_SW_PKG_93_SOUND_APP

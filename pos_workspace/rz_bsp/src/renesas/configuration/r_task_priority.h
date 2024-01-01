@@ -76,7 +76,6 @@
 /** iic3 driver interrupts, used in r_rskrza1h_riic_lld.c */
 #define ISR_IIC3_PRIORITY          (R_HARDWARE_API_ISR_PRIORITY + 4)
 #elif (TARGET_BOARD == TARGET_BOARD_STREAM_IT2)
-#define ISR_IIC3_PRIORITY          (R_HARDWARE_API_ISR_PRIORITY + 4)
 #endif
 
 /** USB Host must have higher priority than timer for enumerator */

@@ -6,7 +6,7 @@
 #define PL310_L2CC_H
 /**************************************************************************//**
  * @ingroup R_SW_PKG_93_NONOS_DRIVERS
- * @defgroup R_SW_PKG_93_ARM_L2CC_API ARL L2CC RZA1LU Driver
+ * @defgroup R_SW_PKG_93_ARM_L2CC_API ARL L2CC RZA1 Driver
  *
  * @anchor R_SW_PKG_93_ARM_L2CC_API_SUMMARY
  * @par Summary
@@ -16,7 +16,7 @@
  *
  * @anchor R_SW_PKG_93_ARM_L2CC_API_INSTANCES
  * @par Known Implementations:
- * This driver is used in the RZA1LU Software Package.
+ * This driver is used in the RZA1 Software Package.
  * @see RENESAS_APPLICATION_SOFTWARE_PACKAGE
  *
  * @see RENESAS_OS_ABSTRACTION  Renesas OS Abstraction interface

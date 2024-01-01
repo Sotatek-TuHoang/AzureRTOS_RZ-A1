@@ -18,13 +18,13 @@
 * you agree to the additional terms and conditions found by accessing the
 * following link:
 * http://www.renesas.com/disclaimer*
-* Copyright (C) 2013-2016 Renesas Electronics Corporation. All rights reserved.
+* Copyright (C) 2013-2017 Renesas Electronics Corporation. All rights reserved.
 *******************************************************************************/
 /*******************************************************************************
 * File Name : spibsc_iodefine.h
-* $Rev: 2941 $
-* $Date:: 2017-02-20 14:49:23 +0000#$
-* Description : Definition of I/O Register for RZ/A1LU (V3.00l)
+* $Rev: 29 $
+* $Date:: 2016-12-20 17:40:26 +0900#$
+* Description : Definition of I/O Register for RZ/A1H,M (V2.00h)
 ******************************************************************************/
 #ifndef SPIBSC_IODEFINE_H
 #define SPIBSC_IODEFINE_H
@@ -34,28 +34,19 @@
 /* ->SEC M1.10.1 : Not magic number */
 
 #define SPIBSC0 (*(struct st_spibsc  *)0x3FEFA000uL) /* SPIBSC0 */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define SPIBSC1 (*(struct st_spibsc  *)0x3FEFB000uL) /* SPIBSC1 */
-#endif
+
 
 /* Start of channel array defines of SPIBSC */
 
 /* Channel array defines of SPIBSC */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 /*(Sample) value = SPIBSC[ channel ]->CMNCR; */
 #define SPIBSC_COUNT  (2)
 #define SPIBSC_ADDRESS_LIST \
 {   /* ->MISRA 11.3 */ /* ->SEC R2.7.1 */ \
     &SPIBSC0, &SPIBSC1 \
 }   /* <-MISRA 11.3 */ /* <-SEC R2.7.1 */ /* { } is for MISRA 19.4 */
-#else
-/*(Sample) value = SPIBSC[ channel ]->CMNCR; */
-#define SPIBSC_COUNT  (1)
-#define SPIBSC_ADDRESS_LIST \
-{   /* ->MISRA 11.3 */ /* ->SEC R2.7.1 */ \
-    &SPIBSC0 \
-}   /* <-MISRA 11.3 */ /* <-SEC R2.7.1 */ /* { } is for MISRA 19.4 */
-#endif
+
 /* End of channel array defines of SPIBSC */
 
 
@@ -107,7 +98,6 @@
 #define SMDMCR_0 (SPIBSC0.SMDMCR)
 #define SMDRENR_0 (SPIBSC0.SMDRENR)
 #define SPODLY_0 (SPIBSC0.SPODLY)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define CMNCR_1 (SPIBSC1.CMNCR)
 #define SSLDR_1 (SPIBSC1.SSLDR)
 #define SPBCR_1 (SPIBSC1.SPBCR)
@@ -156,7 +146,7 @@
 #define SMDMCR_1 (SPIBSC1.SMDMCR)
 #define SMDRENR_1 (SPIBSC1.SMDRENR)
 #define SPODLY_1 (SPIBSC1.SPODLY)
-#endif
+
 
 typedef struct st_spibsc
 {

@@ -28,58 +28,42 @@
 ******************************************************************************/
 #ifndef SRC_DRIVERS_INC_IODEFINE_CFG_H_
 #define SRC_DRIVERS_INC_IODEFINE_CFG_H_
-#include "mcu_board_select.h"
+
 #include "iodefine_typedef.h"                         /* (V2.00h) */
 
 #include "adc_iodefine.h"                             /* (V2.00h) */
 #include "bsc_iodefine.h"                             /* (V2.00h) */
 #include "ceu_iodefine.h"                             /* (V2.00h) */
 #include "cpg_iodefine.h"                             /* (V2.00h) */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #include "disc_iodefine.h"                            /* (V2.00h) */
-#endif
 #include "dmac_iodefine.h"                            /* (V2.00h) */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #include "dvdec_iodefine.h"                           /* (V2.00h) */
-#endif
 #include "ether_iodefine.h"                           /* (V2.00h) */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #include "flctl_iodefine.h"                           /* (V2.00h) */
-#endif
 #include "gpio_iodefine.h"                            /* (V2.00h) */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #include "ieb_iodefine.h"                             /* (V2.00h) */
-#endif
 #include "inb_iodefine.h"                             /* (V2.00h) */
 #include "intc_iodefine.h"                            /* (V2.00h) */
 #include "irda_iodefine.h"                            /* (V2.00h) */
 #include "jcu_iodefine.h"                             /* (V2.00h) */
 #include "l2c_iodefine.h"                             /* (V2.00h) */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #include "lin_iodefine.h"                             /* (V2.00h) */
 #include "lvds_iodefine.h"                            /* (V2.00h) */
 #include "mlb_iodefine.h"                             /* (V2.00h) */
-#endif
 #include "mmc_iodefine.h"                             /* (V2.00h) */
 #include "mtu2_iodefine.h"                            /* (V2.00h) */
 #include "ostm_iodefine.h"                            /* (V2.00h) */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #include "pfv_iodefine.h"                             /* (V2.00h) */
 #include "pwm_iodefine.h"                             /* (V2.00h) */
-#endif
 #include "riic_iodefine.h"                            /* (V2.00h) */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #include "romdec_iodefine.h"                          /* (V2.00h) */
-#endif
 #include "rscan0_iodefine.h"                          /* (V2.00h) */
 #include "rspi_iodefine.h"                            /* (V2.00h) */
 #include "rtc_iodefine.h"                             /* (V2.00h) */
 #include "scif_iodefine.h"                            /* (V2.00h) */
 #include "scim_iodefine.h"                            /* (V2.00h) */
 #include "scux_iodefine.h"                            /* (V2.00h) */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #include "sdg_iodefine.h"                             /* (V2.00h) */
-#endif
 #include "spdif_iodefine.h"                           /* (V2.00h) */
 #include "spibsc_iodefine.h"                          /* (V2.00h) */
 #include "ssif_iodefine.h"                            /* (V2.00h) */

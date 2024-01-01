@@ -171,23 +171,12 @@ static void led_close(st_stream_ptr_t pStream)
 
 /******************************************************************************
  Function Name: led_read
- Description:   Function to read the current state of the single led
- If this driver supported multiple LED's either
- create new LLDriver (sharing the same HLDriver)
- OR
- use control function and pass the LED to read &
- the data store for the value in ctrl_ptr
- ie
- struct r_led_st
- {
- uint32_t led;            // LED to read
- uint32_t current_state;  // status of LED
- }
+ Description:   This function is unused.
 
  Arguments:     IN  pStream - Pointer to the file stream
- IN  uiCount - Buffer size
- OUT *pbyBuffer - data
- Return value:  0 for success otherwise -1
+                IN  uiCount - Buffer size
+                OUT *pbyBuffer - data
+ Return value:  DEVDRV_ERROR always
  ******************************************************************************/
 static int_t led_read(st_stream_ptr_t pStream, uint8_t *pbyBuffer, uint32_t uiCount)
 {

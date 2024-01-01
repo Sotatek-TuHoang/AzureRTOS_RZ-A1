@@ -18,21 +18,6 @@ C_SRCS += \
 ../addons/azure_iot/azure-sdk-for-c/sdk/src/azure/core/az_precondition.c \
 ../addons/azure_iot/azure-sdk-for-c/sdk/src/azure/core/az_span.c 
 
-LST += \
-az_context.lst \
-az_http_pipeline.lst \
-az_http_policy.lst \
-az_http_policy_logging.lst \
-az_http_policy_retry.lst \
-az_http_request.lst \
-az_http_response.lst \
-az_json_reader.lst \
-az_json_token.lst \
-az_json_writer.lst \
-az_log.lst \
-az_precondition.lst \
-az_span.lst 
-
 C_DEPS += \
 ./addons/azure_iot/azure-sdk-for-c/sdk/src/azure/core/az_context.d \
 ./addons/azure_iot/azure-sdk-for-c/sdk/src/azure/core/az_http_pipeline.d \
@@ -63,13 +48,8 @@ OBJS += \
 ./addons/azure_iot/azure-sdk-for-c/sdk/src/azure/core/az_precondition.o \
 ./addons/azure_iot/azure-sdk-for-c/sdk/src/azure/core/az_span.o 
 
-MAP += \
-netxduo.map 
-
 
 # Each subdirectory must supply rules for building sources it contributes
 addons/azure_iot/azure-sdk-for-c/sdk/src/azure/core/%.o: ../addons/azure_iot/azure-sdk-for-c/sdk/src/azure/core/%.c
-	@echo 'Building file: $<'
-	$(file > $@.in,-mcpu=cortex-a9 -march=armv7-a -marm -mlittle-endian -mfloat-abi=hard -mfpu=vfpv3-d16 -O3 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wnull-dereference -Wstack-usage=2000 -g -I"E:\\Sotatek\\AzureRTOS_RZ-A1\\pos_workspace\\rz_bsp\\azure\\ports\\cortex_a9\\gnu\\inc" -I../../filex/common/inc -I../../threadx/common/inc -I../../rz_bsp/azure/ports/cortex_a9/gnu/inc -I../../netxduo/common/inc -I../../netxduo/crypto_libraries/inc -I../../netxduo/nx_secure/ports -I../../netxduo/nx_secure/inc -I../../netxduo/addons/azure_iot -I../../netxduo/addons/azure_iot/azure-sdk-for-c/sdk/inc -I../../netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/inc -I../../netxduo/addons/azure_iot/azure_iot_security_module/inc -I../../netxduo/addons/azure_iot/azure_iot_security_module -I../../netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/deps/flatcc/src/runtime -I../../netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/deps/flatcc/include -I../../netxduo/addons/cloud -I../../netxduo/addons/mqtt -I../../netxduo/addons/dns -std=gnu11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<")
-	@echo $< && arm-none-eabi-gcc @"$@.in"
+	arm-none-eabi-gcc -mcpu=cortex-a9 -march=armv7-a -marm -mlittle-endian -mfloat-abi=hard -mfpu=vfpv3-d16 -O3 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wnull-dereference -g -Wstack-usage=2000 -I../../filex/ports/cortex_a9/gnu/inc -I../../filex/common/inc -I../../threadx/common/inc -I../../rz_bsp/azure/ports/cortex_a9/gnu/inc -I../../netxduo/common/inc -I../../netxduo/crypto_libraries/inc -I../../netxduo/nx_secure/ports -I../../netxduo/nx_secure/inc -I../../netxduo/addons/azure_iot -I../../netxduo/addons/azure_iot/azure-sdk-for-c/sdk/inc -I../../netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/inc -I../../netxduo/addons/azure_iot/azure_iot_security_module/inc -I../../netxduo/addons/azure_iot/azure_iot_security_module -I../../netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/deps/flatcc/src/runtime -I../../netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/deps/flatcc/include -I../../netxduo/addons/cloud -I../../netxduo/addons/mqtt -I../../netxduo/addons/dns -std=gnu11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"
 

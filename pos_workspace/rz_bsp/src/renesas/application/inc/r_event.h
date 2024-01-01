@@ -50,9 +50,7 @@ User Includes
 #include "r_typedefs.h"
 #include "compiler_settings.h"
 
-#include "FreeRTOS.h"
-#include "queue.h"
-#include "r_event.h"
+#include "r_os_abstraction_api.h"
 
 /*****************************************************************************
 Defines
@@ -69,8 +67,6 @@ Enumerated Types
 Typedefs
 ******************************************************************************/
 
-typedef xQueueHandle PEVENT, *PPEVENT;
-
 /*****************************************************************************
 Public Functions
 ******************************************************************************/
@@ -81,50 +77,50 @@ extern "C" {
 
 /**
  * @brief      Function to create one or more events
- * @param[out] ppEventList - Pointer to the destination event pointer array
+ * @param[out] ppevent_tList - Pointer to the destination event pointer array
  * @param[in]  uiNumber - The number of events to create
  * @return     The number of events not created
  */
-extern  uint32_t eventCreate(PPEVENT ppEventList, uint32_t uiNumber);
+extern  uint32_t eventCreate(ppevent_t ppevent_tList, uint32_t uiNumber);
 
 /**
  * @brief Function to destroy one or more events
- * @param ppEventList - Pointer to the event list to destroy
+ * @param ppevent_tList - Pointer to the event list to destroy
  * @param uiNumber - The number of events to destroy
  */
-extern  void eventDestroy(PPEVENT ppEventList, uint32_t uiNumber);
+extern  void eventDestroy(ppevent_t ppevent_tList, uint32_t uiNumber);
 
 /**
  * @brief  Function to set an event
  * @param  pEvent - Pointer to the event to set
  * @return true if the event was set
  */
-extern  _Bool eventSet(PEVENT pEvent);
+extern  _Bool eventSet(pevent_t pEvent);
 
 /**
  * @brief  Function to reset an event
  * @param  pEvent - pointer to the event to reset
  * @return true if the event was reset
  */
-extern  _Bool eventReset(PEVENT pEvent);
+extern  _Bool eventReset(pevent_t pEvent);
 
 /**
  * @brief Function to return the current state of an event
  * @param pEvent - pointer to the event
  * @return The state of the event
  */
-extern  e_event_state_t eventState(PEVENT pEvent);
+extern  e_event_state_t eventState(pevent_t pEvent);
 
 /**
  * @brief Function to return the state of an event and then reset it
  * @param pEvent - Pointer to the event
  * @return The state of the event
  */
-extern  e_event_state_t eventStateEx(PEVENT pEvent);
+extern  e_event_state_t eventStateEx(pevent_t pEvent);
 
 /**
  * @brief Function to wait for one or more events to be set
- * @param ppEventList - Pointer to the list of events
+ * @param ppevent_tList - Pointer to the list of events
  * @param uiNumber - The number of events to wait on
  * @param bfSingle - true if just one event being set is to wake
  *                   the task or false if all the events must be set
@@ -132,24 +128,24 @@ extern  e_event_state_t eventStateEx(PEVENT pEvent);
  * @return When bfSingle is true the index of the event in the list which
            was set. Always 0 when bfSingle is false
  */
-extern  uint32_t eventWait(PPEVENT ppEventList,
+extern  uint32_t eventWait(ppevent_t ppevent_tList,
                            uint32_t    uiNumber,
                            _Bool    bfSingle);
 
 /**
  * @brief Function to wait for a mutex event
- * @param ppEvent[in,out] - Pointer to the mutex event pointer
+ * @param ppevent_t[in,out] - Pointer to the mutex event pointer
  * @param dwTimeOut - The time out in mS or EV_WAIT_INFINITE
  * @return true for success, false if the event could not be created
            or the wait timed out
  */
-extern  _Bool eventWaitMutex(PPEVENT ppEvent, uint32_t dwTimeOut);
+extern  _Bool eventWaitMutex(ppevent_t ppevent_t, uint32_t dwTimeOut);
 
 /**
  * @brief Function to release a mutex event
- * @param ppEvent - Pointer to the mutex event pointer
+ * @param ppevent_t - Pointer to the mutex event pointer
  */
-extern  void eventReleaseMutex(PPEVENT ppEvent);
+extern  void eventReleaseMutex(ppevent_t ppevent_t);
 
 /**
  * @brief Function to get the number of events used

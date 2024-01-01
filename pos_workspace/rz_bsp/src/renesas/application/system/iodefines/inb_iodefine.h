@@ -18,13 +18,13 @@
 * you agree to the additional terms and conditions found by accessing the
 * following link:
 * http://www.renesas.com/disclaimer*
-* Copyright (C) 2013-2016 Renesas Electronics Corporation. All rights reserved.
+* Copyright (C) 2013-2017 Renesas Electronics Corporation. All rights reserved.
 *******************************************************************************/
 /*******************************************************************************
 * File Name : inb_iodefine.h
-* $Rev: 2941 $
-* $Date:: 2017-02-20 14:49:23 +0000#$
-* Description : Definition of I/O Register for RZ/A1LU (V3.00l)
+* $Rev: 29 $
+* $Date:: 2016-12-20 17:40:26 +0900#$
+* Description : Definition of I/O Register for RZ/A1H,M (V2.00h)
 ******************************************************************************/
 #ifndef INB_IODEFINE_H
 #define INB_IODEFINE_H
@@ -38,7 +38,6 @@
 
 #define INBRMPR (INB.RMPR)
 #define INBAXIBUSCTL0 (INB.AXIBUSCTL0)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define INBAXIBUSCTL1 (INB.AXIBUSCTL1)
 #define INBAXIBUSCTL2 (INB.AXIBUSCTL2)
 #define INBAXIBUSCTL3 (INB.AXIBUSCTL3)
@@ -66,29 +65,13 @@
 #define INB_AXIRERRCTLn_COUNT (4)
 #define INB_AXIRERRSTn_COUNT (4)
 #define INB_AXIRERRCLRn_COUNT (4)
-#else
-#define INBAXIBUSCTL2 (INB.AXIBUSCTL2)
-#define INBAXIBUSCTL5 (INB.AXIBUSCTL5)
-#define INBAXIBUSCTL6 (INB.AXIBUSCTL6)
-#define INBAXIBUSCTL7 (INB.AXIBUSCTL7)
-#define INBAXIRERRCTL0 (INB.AXIRERRCTL0)
-#define INBAXIRERRCTL2 (INB.AXIRERRCTL2)
-#define INBAXIRERRST0 (INB.AXIRERRST0)
-#define INBAXIRERRST2 (INB.AXIRERRST2)
-#define INBAXIRERRCLR0 (INB.AXIRERRCLR0)
-#define INBAXIRERRCLR2 (INB.AXIRERRCLR2)
 
-#define INB_AXIBUSCTLn_COUNT (1)
-#define INB_AXIRERRCTLn_COUNT (1)
-#define INB_AXIRERRSTn_COUNT (1)
-#define INB_AXIRERRCLRn_COUNT (1)
-#endif
 
 typedef struct st_inb
 {
                                                            /* INB              */
     volatile uint32_t  RMPR;                                   /*  RMPR            */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
+
 /* #define INB_AXIBUSCTLn_COUNT (11) */
     volatile uint32_t  AXIBUSCTL0;                             /*  AXIBUSCTL0      */
     volatile uint32_t  AXIBUSCTL1;                             /*  AXIBUSCTL1      */
@@ -119,34 +102,6 @@ typedef struct st_inb
     volatile uint32_t  AXIRERRCLR1;                            /*  AXIRERRCLR1     */
     volatile uint32_t  AXIRERRCLR2;                            /*  AXIRERRCLR2     */
     volatile uint32_t  AXIRERRCLR3;                            /*  AXIRERRCLR3     */
-#else
-/* #define INB_AXIBUSCTLn_COUNT (1) */
-    volatile uint32_t  AXIBUSCTL0;                             /*  AXIBUSCTL0      */
-    volatile uint8_t   dummy318[4];                            /*                  */
-    volatile uint32_t  AXIBUSCTL2;                             /*  AXIBUSCTL2      */
-    volatile uint8_t   dummy319[8];                            /*                  */
-    volatile uint32_t  AXIBUSCTL5;                             /*  AXIBUSCTL5      */
-    volatile uint32_t  AXIBUSCTL6;                             /*  AXIBUSCTL6      */
-    volatile uint32_t  AXIBUSCTL7;                             /*  AXIBUSCTL7      */
-    volatile uint8_t   dummy320[12];                           /*                  */
-
-/* #define INB_AXIRERRCTLn_COUNT (1) */
-    volatile uint32_t  AXIRERRCTL0;                            /*  AXIRERRCTL0     */
-    volatile uint8_t   dummy321[4];                            /*                  */
-    volatile uint32_t  AXIRERRCTL2;                            /*  AXIRERRCTL2     */
-    volatile uint8_t   dummy322[4];                            /*                  */
-
-/* #define INB_AXIRERRSTn_COUNT (1) */
-    volatile uint32_t  AXIRERRST0;                             /*  AXIRERRST0      */
-    volatile uint8_t   dummy323[4];                            /*                  */
-    volatile uint32_t  AXIRERRST2;                             /*  AXIRERRST2      */
-    volatile uint8_t   dummy324[4];                            /*                  */
-
-/* #define INB_AXIRERRCLRn_COUNT (1) */
-    volatile uint32_t  AXIRERRCLR0;                            /*  AXIRERRCLR0     */
-    volatile uint8_t   dummy325[4];                            /*                  */
-    volatile uint32_t  AXIRERRCLR2;                            /*  AXIRERRCLR2     */
-#endif
 } r_io_inb_t;
 
 

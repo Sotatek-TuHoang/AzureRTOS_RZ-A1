@@ -39,20 +39,20 @@
 
 /**************************************************************************//**
  * @ingroup R_SW_PKG_93_NONOS_DRIVERS
- * @defgroup R_SW_PKG_93_VDC_H_API VDC_H RZA1LU Driver
+ * @defgroup R_SW_PKG_93_VDC_H_API VDC_H RZA1 Driver
  *
  * @anchor R_SW_PKG_93_VDC_H_API_SUMMARY
  * @par Summary
  *
- * This is a simple ADC Low Level Driver developed for the RZA1LU Stream-IT
+ * This is a simple ADC Low Level Driver developed for the RZA1
  * board.
  *
  * This is a device and board specific implementation of an ADC driver,
- * configured for the RZA1LU Stream-IT board.
+ * configured for the RZA1 board.
  *
  * @anchor R_SW_PKG_93_VDC_H_API_INSTANCES
  * @par Known Implementations:
- * This driver is used in the RZA1LU Software Package.
+ * This driver is used in the RZA1 Software Package.
  * @see RENESAS_APPLICATION_SOFTWARE_PACKAGE
  *
  * @see RENESAS_OS_ABSTRACTION  Renesas OS Abstraction interface

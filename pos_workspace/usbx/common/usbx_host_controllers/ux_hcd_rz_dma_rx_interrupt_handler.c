@@ -29,8 +29,6 @@
 #include "ux_hcd_rz.h"
 #include "ux_system.h"
 
-#include "usb_dma.h"	/* grape */
-
 #ifdef UX_RZ_HCD_USE_DMA
 /**************************************************************************/
 /*                                                                        */
@@ -86,6 +84,7 @@ UINT                hcd_index;
 UX_HCD              *hcd;
 UX_HCD_RZ           *hcd_rz;
 
+
     /* We need to parse the controller driver table to find all controllers that 
       are registered as RZ.  */
     for (hcd_index = 0; hcd_index < _ux_system_host -> ux_system_host_registered_hcd; hcd_index++)
@@ -107,9 +106,6 @@ UX_HCD_RZ           *hcd_rz;
             /* Set status to idle.  */
             hcd_rz -> ux_hcd_rz_dma_status = UX_RZ_DMA_STATUS_IDLE;
 
-#if 1	/* grape */
-            usb_dma_single_put_sem();
-#endif
             /* Check if we need to put a semaphore.  */
             if (hcd_rz -> ux_hcd_rz_transfer_request != UX_NULL)
             {

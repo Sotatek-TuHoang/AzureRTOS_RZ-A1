@@ -19,18 +19,19 @@
  * accessing the following link:
  * http://www.renesas.com/disclaimer
 *******************************************************************************
-* Copyright (C) 2018 Renesas Electronics Corporation. All rights reserved.
+* Copyright (C) 2019 Renesas Electronics Corporation. All rights reserved.
  *****************************************************************************/
 /******************************************************************************
  * @headerfile     r_eeprom_drv_api.h
  * @brief          Posix driver for EEPROM
  * @version        1.00
- * @date           27.06.2018
- * H/W Platform    RZ/A1LU
+ * @date           24.04.2019
+ * H/W Platform    Renesas Starter Kit+ for RZ/A1H
  *****************************************************************************/
  /*****************************************************************************
  * History      : DD.MM.YYYY Ver. Description
  *              : 30.06.2018 1.00 First Release
+ *              : 24.04.2019 2.00 Porting for RZA1H and RZ/A1LU
  *****************************************************************************/
 
 /* Multiple inclusion prevention macro */
@@ -55,8 +56,8 @@
  * This driver uses locking primitives to control access to the EEPROM and the
  * underlying I2C communications bus.
  *
- * Driver Instance : @ref g24C04Driver </b><BR>
- * @copydoc g24C04Driver
+ * Driver Instance : @ref gR1EX24016Driver </b><BR>
+ * @copydoc gR1EX24016Driver
  *
  * <b>Generic example of driver usage</b> ::st_def_stdio_device_t
  *
@@ -66,7 +67,7 @@
  *
  * @anchor R_SW_PKG_93_EEPROM_API_INSTANCES
  * @par Known Implementations:
- * This driver is used in the RZA1LU Software Package.
+ * This driver is used in the RZA1H Software Package.
  * @ref RENESAS_APPLICATION_SOFTWARE_PACKAGE
  *
  * @ref RENESAS_OS_ABSTRACTION  Renesas OS Abstraction interface

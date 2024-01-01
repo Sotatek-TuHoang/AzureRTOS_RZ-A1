@@ -32,7 +32,6 @@ ARCHIVES :=
 SRC_UPPER_DEPS := 
 P_UPPER_DEPS := 
 S_DEPS := 
-LST := 
 PP_UPPER_DEPS := 
 P_DEPS := 
 FSY_UPPER_DEPS := 
@@ -46,7 +45,6 @@ SX_UPPER_DEPS :=
 OBJS := 
 ASM_DEPS := 
 S_UPPER_DEPS := 
-MAP := 
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \

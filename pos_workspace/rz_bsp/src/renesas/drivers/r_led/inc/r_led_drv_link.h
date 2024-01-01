@@ -62,8 +62,11 @@
 
  #include "mcu_board_select.h"
  
-#include "r_sitrza1_led_lld.h"
-
+ #if (TARGET_RZA1 <= TARGET_RZA1LU)
+     #include "r_sitrza1lu_led_lld.h"
+#else /* TARGET_RZA1H */
+	#include "r_sitrza1h_led_lld.h"
+#endif
 
 /*****************************************************************************
  Macro definitions

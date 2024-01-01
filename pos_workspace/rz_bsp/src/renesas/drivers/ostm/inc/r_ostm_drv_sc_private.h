@@ -33,7 +33,7 @@
 /*******************************************************************************************************************//**
  * @ingroup SSGSTARC_37_OSTM_DRIVER
  * @ingroup R_SW_PKG_93_SC_CFG
- * @defgroup OSTM_DRIVER_SC_PRIVATE RZA1LU OSTM private interface to SC
+ * @defgroup OSTM_DRIVER_SC_PRIVATE RZA1H OSTM private interface to SC
  * @brief Manages the private interface between the driver and SC.
  *
  * @anchor OSTM_DRIVER_SC_PRIVATE_SUMMARY

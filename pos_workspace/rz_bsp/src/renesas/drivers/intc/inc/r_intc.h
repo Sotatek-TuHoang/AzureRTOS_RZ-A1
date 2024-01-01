@@ -26,7 +26,7 @@
  * @brief          Sample Program - Interrupt process
  * @version        1.00
  * @date           27.06.2018
- * H/W Platform    RZ/A1LU
+ * H/W Platform    RSK+RZA1H CPU Board
  *****************************************************************************/
  /*****************************************************************************
  * History      : DD.MM.YYYY Ver. Description
@@ -38,20 +38,20 @@
 #define R_SW_PKG_93_INTC_API_H_INCLUDED
 /**************************************************************************//**
  * @ingroup R_SW_PKG_93_NONOS_DRIVERS
- * @defgroup R_SW_PKG_93_INTC_API INTC RZA1LU Driver
+ * @defgroup R_SW_PKG_93_INTC_API INTC RZA1H Driver
  *
  * @anchor R_SW_PKG_93_INTC_API_SUMMARY
  * @par Summary
  *
- * This is a simple ADC Low Level Driver developed for the RZA1LU Stream-IT
+ * This is a simple ADC Low Level Driver developed for the RZA1H
  * board.
  *
  * This is a device and board specific implementation of an INTC driver,
- * configured for the RZA1LU Stream-IT board.
+ * configured for the RZA1H board.
  *
  * @anchor R_SW_PKG_93_INTC_API_INSTANCES
  * @par Known Implementations:
- * This driver is used in the RZA1LU Software Package.
+ * This driver is used in the RZA1H Software Package.
  * @see RENESAS_APPLICATION_SOFTWARE_PACKAGE
  * @see RENESAS_OS_ABSTRACTION  Renesas OS Abstraction interface
  * @{

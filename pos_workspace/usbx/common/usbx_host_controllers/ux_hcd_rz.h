@@ -20,6 +20,7 @@
 /**************************************************************************/
 /**************************************************************************/
 
+
 /**************************************************************************/ 
 /*                                                                        */ 
 /*  COMPONENT DEFINITION                                   RELEASE        */ 
@@ -48,10 +49,8 @@
 #ifndef UX_HCD_RZ_H
 #define UX_HCD_RZ_H
 
-#include "mcu_board_select.h"
-#if (TARGET_RZA1 == TARGET_RZA1H)
-#define UX_RZ_HCD_USE_DMA	/* grape */
-#endif
+#define UX_RZ_HCD_USE_DMA
+
 /* Define RZ generic definitions.  */
 
 #define UX_RZ_CONTROLLER                            3
@@ -73,11 +72,7 @@
 #define UX_RZ_USB0_BASE                             0xE8010000
 #define UX_RZ_USB1_BASE                             0xE8207000
 
-#if ( TARGET_BOARD == TARGET_BOARD_RSK)
 #define UX_RZ_USB_BASE                              UX_RZ_USB1_BASE
-#else
-#define UX_RZ_USB_BASE                              UX_RZ_USB0_BASE
-#endif
                                                     
 
 #ifdef UX_RZ
@@ -387,13 +382,13 @@
 #ifdef UX_RZ_HCD_USE_DMA
 /* Define RZ DMA register mapping.  */
 
-#define UX_RZ_DMA_TX_CH                                     0
-#define UX_RZ_DMA_RX_CH                                     1
+#define UX_RZ_DMA_TX_CH                                     10
+#define UX_RZ_DMA_RX_CH                                     11
 
-#define UX_RZ_DMA_TX_INT_ID                                 INTC_ID_DMAINT0
-#define UX_RZ_DMA_RX_INT_ID                                 INTC_ID_DMAINT1
+#define UX_RZ_DMA_TX_INT_ID                                 INTC_ID_DMAINT10
+#define UX_RZ_DMA_RX_INT_ID                                 INTC_ID_DMAINT11
 
-#define UX_RZ_DMA_BASE(ch)                                  (0xE8200000 + (ch) * 0x40)
+#define UX_RZ_DMA_BASE(ch)                                  (0xE8200400 + ((ch) - 8) * 0x40)
 
 #define UX_RZ_DMA_N0SA(ch)                                  (UX_RZ_DMA_BASE(ch) + 0x00)
 #define UX_RZ_DMA_N0DA(ch)                                  (UX_RZ_DMA_BASE(ch) + 0x04)
@@ -421,12 +416,10 @@
 #define UX_RZ_DMA_RS6                                       (0xFCFE1018)
 #define UX_RZ_DMA_RS7                                       (0xFCFE101C)
 
-#define UX_RZ_DMA_TX_RS                                     UX_RZ_DMA_RS0
-#define UX_RZ_DMA_RX_RS                                     UX_RZ_DMA_RS0
-#define UX_RZ_DMA_USB0_TX_RS_VALUE                               0x83
-#define UX_RZ_DMA_USB0_RX_RS_VALUE                               0x87 << 16
-#define UX_RZ_DMA_USB1_TX_RS_VALUE                               0x8B
-#define UX_RZ_DMA_USB1_RX_RS_VALUE                               0x8F << 16
+#define UX_RZ_DMA_TX_RS                                     UX_RZ_DMA_RS5
+#define UX_RZ_DMA_RX_RS                                     UX_RZ_DMA_RS5
+#define UX_RZ_DMA_TX_RS_VALUE                               0x8B
+#define UX_RZ_DMA_RX_RS_VALUE                               0x8B << 16
 
 /* Define RZ DMA register values.  */
 

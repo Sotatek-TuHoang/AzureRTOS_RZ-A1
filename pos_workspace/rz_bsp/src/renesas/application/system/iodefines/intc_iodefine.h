@@ -18,13 +18,13 @@
 * you agree to the additional terms and conditions found by accessing the
 * following link:
 * http://www.renesas.com/disclaimer*
-* Copyright (C) 2013-2016 Renesas Electronics Corporation. All rights reserved.
+* Copyright (C) 2013-2017 Renesas Electronics Corporation. All rights reserved.
 *******************************************************************************/
 /*******************************************************************************
 * File Name : intc_iodefine.h
-* $Rev: 2941 $
-* $Date:: 2017-02-20 14:49:23 +0000#$
-* Description : Definition of I/O Register for RZ/A1LU (V3.00l)
+* $Rev: 29 $
+* $Date:: 2016-12-20 17:40:26 +0900#$
+* Description : Definition of I/O Register for RZ/A1H,M (V2.00h)
 ******************************************************************************/
 #ifndef INTC_IODEFINE_H
 #define INTC_IODEFINE_H
@@ -56,10 +56,8 @@
 #define INTCICDISR14 (INTC.ICDISR14)
 #define INTCICDISR15 (INTC.ICDISR15)
 #define INTCICDISR16 (INTC.ICDISR16)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define INTCICDISR17 (INTC.ICDISR17)
 #define INTCICDISR18 (INTC.ICDISR18)
-#endif
 #define INTCICDISER0 (INTC.ICDISER0)
 #define INTCICDISER1 (INTC.ICDISER1)
 #define INTCICDISER2 (INTC.ICDISER2)
@@ -77,10 +75,8 @@
 #define INTCICDISER14 (INTC.ICDISER14)
 #define INTCICDISER15 (INTC.ICDISER15)
 #define INTCICDISER16 (INTC.ICDISER16)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define INTCICDISER17 (INTC.ICDISER17)
 #define INTCICDISER18 (INTC.ICDISER18)
-#endif
 #define INTCICDICER0 (INTC.ICDICER0)
 #define INTCICDICER1 (INTC.ICDICER1)
 #define INTCICDICER2 (INTC.ICDICER2)
@@ -98,10 +94,8 @@
 #define INTCICDICER14 (INTC.ICDICER14)
 #define INTCICDICER15 (INTC.ICDICER15)
 #define INTCICDICER16 (INTC.ICDICER16)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define INTCICDICER17 (INTC.ICDICER17)
 #define INTCICDICER18 (INTC.ICDICER18)
-#endif
 #define INTCICDISPR0 (INTC.ICDISPR0)
 #define INTCICDISPR1 (INTC.ICDISPR1)
 #define INTCICDISPR2 (INTC.ICDISPR2)
@@ -119,10 +113,8 @@
 #define INTCICDISPR14 (INTC.ICDISPR14)
 #define INTCICDISPR15 (INTC.ICDISPR15)
 #define INTCICDISPR16 (INTC.ICDISPR16)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define INTCICDISPR17 (INTC.ICDISPR17)
 #define INTCICDISPR18 (INTC.ICDISPR18)
-#endif
 #define INTCICDICPR0 (INTC.ICDICPR0)
 #define INTCICDICPR1 (INTC.ICDICPR1)
 #define INTCICDICPR2 (INTC.ICDICPR2)
@@ -140,10 +132,8 @@
 #define INTCICDICPR14 (INTC.ICDICPR14)
 #define INTCICDICPR15 (INTC.ICDICPR15)
 #define INTCICDICPR16 (INTC.ICDICPR16)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define INTCICDICPR17 (INTC.ICDICPR17)
 #define INTCICDICPR18 (INTC.ICDICPR18)
-#endif
 #define INTCICDABR0 (INTC.ICDABR0)
 #define INTCICDABR1 (INTC.ICDABR1)
 #define INTCICDABR2 (INTC.ICDABR2)
@@ -161,10 +151,8 @@
 #define INTCICDABR14 (INTC.ICDABR14)
 #define INTCICDABR15 (INTC.ICDABR15)
 #define INTCICDABR16 (INTC.ICDABR16)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define INTCICDABR17 (INTC.ICDABR17)
 #define INTCICDABR18 (INTC.ICDABR18)
-#endif
 #define INTCICDIPR0 (INTC.ICDIPR0)
 #define INTCICDIPR1 (INTC.ICDIPR1)
 #define INTCICDIPR2 (INTC.ICDIPR2)
@@ -300,7 +288,6 @@
 #define INTCICDIPR132 (INTC.ICDIPR132)
 #define INTCICDIPR133 (INTC.ICDIPR133)
 #define INTCICDIPR134 (INTC.ICDIPR134)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define INTCICDIPR135 (INTC.ICDIPR135)
 #define INTCICDIPR136 (INTC.ICDIPR136)
 #define INTCICDIPR137 (INTC.ICDIPR137)
@@ -313,7 +300,6 @@
 #define INTCICDIPR144 (INTC.ICDIPR144)
 #define INTCICDIPR145 (INTC.ICDIPR145)
 #define INTCICDIPR146 (INTC.ICDIPR146)
-#endif
 #define INTCICDIPTR0 (INTC.ICDIPTR0)
 #define INTCICDIPTR1 (INTC.ICDIPTR1)
 #define INTCICDIPTR2 (INTC.ICDIPTR2)
@@ -449,7 +435,6 @@
 #define INTCICDIPTR132 (INTC.ICDIPTR132)
 #define INTCICDIPTR133 (INTC.ICDIPTR133)
 #define INTCICDIPTR134 (INTC.ICDIPTR134)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define INTCICDIPTR135 (INTC.ICDIPTR135)
 #define INTCICDIPTR136 (INTC.ICDIPTR136)
 #define INTCICDIPTR137 (INTC.ICDIPTR137)
@@ -462,7 +447,6 @@
 #define INTCICDIPTR144 (INTC.ICDIPTR144)
 #define INTCICDIPTR145 (INTC.ICDIPTR145)
 #define INTCICDIPTR146 (INTC.ICDIPTR146)
-#endif
 #define INTCICDICFR0 (INTC.ICDICFR0)
 #define INTCICDICFR1 (INTC.ICDICFR1)
 #define INTCICDICFR2 (INTC.ICDICFR2)
@@ -497,11 +481,9 @@
 #define INTCICDICFR31 (INTC.ICDICFR31)
 #define INTCICDICFR32 (INTC.ICDICFR32)
 #define INTCICDICFR33 (INTC.ICDICFR33)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define INTCICDICFR34 (INTC.ICDICFR34)
 #define INTCICDICFR35 (INTC.ICDICFR35)
 #define INTCICDICFR36 (INTC.ICDICFR36)
-#endif
 #define INTCPPI_STATUS (INTC.PPI_STATUS)
 #define INTCSPI_STATUS0 (INTC.SPI_STATUS0)
 #define INTCSPI_STATUS1 (INTC.SPI_STATUS1)
@@ -518,10 +500,8 @@
 #define INTCSPI_STATUS12 (INTC.SPI_STATUS12)
 #define INTCSPI_STATUS13 (INTC.SPI_STATUS13)
 #define INTCSPI_STATUS14 (INTC.SPI_STATUS14)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #define INTCSPI_STATUS15 (INTC.SPI_STATUS15)
 #define INTCSPI_STATUS16 (INTC.SPI_STATUS16)
-#endif
 #define INTCICDSGIR (INTC.ICDSGIR)
 #define INTCICCICR (INTC.ICCICR)
 #define INTCICCPMR (INTC.ICCPMR)
@@ -535,9 +515,7 @@
 #define INTCICR0 (INTC.ICR0)
 #define INTCICR1 (INTC.ICR1)
 #define INTCIRQRR (INTC.IRQRR)
-#define INTCUSBSSCR0 (INTC.USBSSCR0)
-#define INTCUSBSSCR1 (INTC.USBSSCR1)
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
+
 #define INTC_ICDISR0_COUNT (19)
 #define INTC_ICDISER0_COUNT (19)
 #define INTC_ICDICER0_COUNT (19)
@@ -548,18 +526,7 @@
 #define INTC_ICDIPTR0_COUNT (147)
 #define INTC_ICDICFR0_COUNT (37)
 #define INTC_SPI_STATUS0_COUNT (17)
-#else
-#define INTC_ICDISR0_COUNT (17)
-#define INTC_ICDISER0_COUNT (17)
-#define INTC_ICDICER0_COUNT (17)
-#define INTC_ICDISPR0_COUNT (17)
-#define INTC_ICDICPR0_COUNT (17)
-#define INTC_ICDABR0_COUNT (17)
-#define INTC_ICDIPR0_COUNT (135)
-#define INTC_ICDIPTR0_COUNT (135)
-#define INTC_ICDICFR0_COUNT (34)
-#define INTC_SPI_STATUS0_COUNT (15)
-#endif
+
 
 typedef struct st_intc
 {
@@ -587,13 +554,10 @@ typedef struct st_intc
     volatile uint32_t  ICDISR14;                               /*  ICDISR14        */
     volatile uint32_t  ICDISR15;                               /*  ICDISR15        */
     volatile uint32_t  ICDISR16;                               /*  ICDISR16        */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint32_t  ICDISR17;                               /*  ICDISR17        */
     volatile uint32_t  ICDISR18;                               /*  ICDISR18        */
-    volatile uint8_t   dummy194[52];   						   /*                  */
-#else  
-	volatile uint8_t   dummy194[60];                           /*                  */                      
-#endif
+    volatile uint8_t   dummy194[52];                           /*                  */
+
 /* #define INTC_ICDISER0_COUNT (19) */
     volatile uint32_t  ICDISER0;                               /*  ICDISER0        */
     volatile uint32_t  ICDISER1;                               /*  ICDISER1        */
@@ -614,7 +578,6 @@ typedef struct st_intc
     volatile uint32_t  ICDISER16;                              /*  ICDISER16       */
     volatile uint32_t  ICDISER17;                              /*  ICDISER17       */
     volatile uint32_t  ICDISER18;                              /*  ICDISER18       */
-
     volatile uint8_t   dummy195[52];                           /*                  */
 
 /* #define INTC_ICDICER0_COUNT (19) */
@@ -635,13 +598,9 @@ typedef struct st_intc
     volatile uint32_t  ICDICER14;                              /*  ICDICER14       */
     volatile uint32_t  ICDICER15;                              /*  ICDICER15       */
     volatile uint32_t  ICDICER16;                              /*  ICDICER16       */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint32_t  ICDICER17;                              /*  ICDICER17       */
     volatile uint32_t  ICDICER18;                              /*  ICDICER18       */
     volatile uint8_t   dummy196[52];                           /*                  */
-#else
-	volatile uint8_t   dummy196[60];                           /*                  */
-#endif
 
 /* #define INTC_ICDISPR0_COUNT (19) */
     volatile uint32_t  ICDISPR0;                               /*  ICDISPR0        */
@@ -661,13 +620,9 @@ typedef struct st_intc
     volatile uint32_t  ICDISPR14;                              /*  ICDISPR14       */
     volatile uint32_t  ICDISPR15;                              /*  ICDISPR15       */
     volatile uint32_t  ICDISPR16;                              /*  ICDISPR16       */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint32_t  ICDISPR17;                              /*  ICDISPR17       */
     volatile uint32_t  ICDISPR18;                              /*  ICDISPR18       */
     volatile uint8_t   dummy197[52];                           /*                  */
-#else
-	volatile uint8_t   dummy197[60];                           /*                  */
-#endif
 
 /* #define INTC_ICDICPR0_COUNT (19) */
     volatile uint32_t  ICDICPR0;                               /*  ICDICPR0        */
@@ -687,13 +642,10 @@ typedef struct st_intc
     volatile uint32_t  ICDICPR14;                              /*  ICDICPR14       */
     volatile uint32_t  ICDICPR15;                              /*  ICDICPR15       */
     volatile uint32_t  ICDICPR16;                              /*  ICDICPR16       */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint32_t  ICDICPR17;                              /*  ICDICPR17       */
     volatile uint32_t  ICDICPR18;                              /*  ICDICPR18       */
     volatile uint8_t   dummy198[52];                           /*                  */
-#else
-	volatile uint8_t   dummy198[60];                           /*                  */
-#endif
+
 /* #define INTC_ICDABR0_COUNT (19) */
     volatile uint32_t  ICDABR0;                                /*  ICDABR0         */
     volatile uint32_t  ICDABR1;                                /*  ICDABR1         */
@@ -712,13 +664,10 @@ typedef struct st_intc
     volatile uint32_t  ICDABR14;                               /*  ICDABR14        */
     volatile uint32_t  ICDABR15;                               /*  ICDABR15        */
     volatile uint32_t  ICDABR16;                               /*  ICDABR16        */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint32_t  ICDABR17;                               /*  ICDABR17        */
     volatile uint32_t  ICDABR18;                               /*  ICDABR18        */
     volatile uint8_t   dummy199[180];                          /*                  */
-#else
-	volatile uint8_t   dummy199[188];                          /*                  */
-#endif
+
 /* #define INTC_ICDIPR0_COUNT (147) */
     volatile uint32_t  ICDIPR0;                                /*  ICDIPR0         */
     volatile uint32_t  ICDIPR1;                                /*  ICDIPR1         */
@@ -855,7 +804,6 @@ typedef struct st_intc
     volatile uint32_t  ICDIPR132;                              /*  ICDIPR132       */
     volatile uint32_t  ICDIPR133;                              /*  ICDIPR133       */
     volatile uint32_t  ICDIPR134;                              /*  ICDIPR134       */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint32_t  ICDIPR135;                              /*  ICDIPR135       */
     volatile uint32_t  ICDIPR136;                              /*  ICDIPR136       */
     volatile uint32_t  ICDIPR137;                              /*  ICDIPR137       */
@@ -869,9 +817,7 @@ typedef struct st_intc
     volatile uint32_t  ICDIPR145;                              /*  ICDIPR145       */
     volatile uint32_t  ICDIPR146;                              /*  ICDIPR146       */
     volatile uint8_t   dummy200[436];                          /*                  */
-#else
-	volatile uint8_t   dummy200[484];                          /*                  */
-#endif
+
 /* #define INTC_ICDIPTR0_COUNT (147) */
     volatile uint32_t  ICDIPTR0;                               /*  ICDIPTR0        */
     volatile uint32_t  ICDIPTR1;                               /*  ICDIPTR1        */
@@ -1008,7 +954,6 @@ typedef struct st_intc
     volatile uint32_t  ICDIPTR132;                             /*  ICDIPTR132      */
     volatile uint32_t  ICDIPTR133;                             /*  ICDIPTR133      */
     volatile uint32_t  ICDIPTR134;                             /*  ICDIPTR134      */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint32_t  ICDIPTR135;                             /*  ICDIPTR135      */
     volatile uint32_t  ICDIPTR136;                             /*  ICDIPTR136      */
     volatile uint32_t  ICDIPTR137;                             /*  ICDIPTR137      */
@@ -1022,9 +967,7 @@ typedef struct st_intc
     volatile uint32_t  ICDIPTR145;                             /*  ICDIPTR145      */
     volatile uint32_t  ICDIPTR146;                             /*  ICDIPTR146      */
     volatile uint8_t   dummy201[436];                          /*                  */
-#else
-    volatile uint8_t   dummy201[484];                          /*                  */
-#endif
+
 /* #define INTC_ICDICFR0_COUNT (37) */
     volatile uint32_t  ICDICFR0;                               /*  ICDICFR0        */
     volatile uint32_t  ICDICFR1;                               /*  ICDICFR1        */
@@ -1060,14 +1003,10 @@ typedef struct st_intc
     volatile uint32_t  ICDICFR31;                              /*  ICDICFR31       */
     volatile uint32_t  ICDICFR32;                              /*  ICDICFR32       */
     volatile uint32_t  ICDICFR33;                              /*  ICDICFR33       */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint32_t  ICDICFR34;                              /*  ICDICFR34       */
     volatile uint32_t  ICDICFR35;                              /*  ICDICFR35       */
     volatile uint32_t  ICDICFR36;                              /*  ICDICFR36       */
     volatile uint8_t   dummy202[108];                          /*                  */
-#else
-    volatile uint8_t   dummy202[120];                          /*                  */
-#endif
     volatile uint32_t  PPI_STATUS;                             /*  PPI_STATUS      */
 
 /* #define INTC_SPI_STATUS0_COUNT (17) */
@@ -1086,13 +1025,9 @@ typedef struct st_intc
     volatile uint32_t  SPI_STATUS12;                           /*  SPI_STATUS12    */
     volatile uint32_t  SPI_STATUS13;                           /*  SPI_STATUS13    */
     volatile uint32_t  SPI_STATUS14;                           /*  SPI_STATUS14    */
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
     volatile uint32_t  SPI_STATUS15;                           /*  SPI_STATUS15    */
     volatile uint32_t  SPI_STATUS16;                           /*  SPI_STATUS16    */
     volatile uint8_t   dummy203[440];                          /*                  */
-#else
-    volatile uint8_t   dummy203[448];                          /*                  */
-#endif
     volatile uint32_t  ICDSGIR;                                /*  ICDSGIR         */
     volatile uint8_t   dummy204[252];                          /*                  */
     volatile uint32_t  ICCICR;                                 /*  ICCICR          */
@@ -1109,9 +1044,6 @@ typedef struct st_intc
     volatile uint16_t ICR0;                                   /*  ICR0            */
     volatile uint16_t ICR1;                                   /*  ICR1            */
     volatile uint16_t IRQRR;                                  /*  IRQRR           */
-    volatile uint8_t   dummy207[4];                            /*                  */
-    volatile uint16_t USBSSCR0;                               /*  USBSSCR0        */
-    volatile uint16_t USBSSCR1;                               /*  USBSSCR1        */
 } r_io_intc_t;
 
 

@@ -62,65 +62,6 @@ C_SRCS += \
 ../crypto_libraries/src/nx_crypto_tls_prf_sha512.c \
 ../crypto_libraries/src/nx_crypto_xcbc_mac.c 
 
-LST += \
-nx_crypto_3des.lst \
-nx_crypto_aes.lst \
-nx_crypto_cbc.lst \
-nx_crypto_ccm.lst \
-nx_crypto_ctr.lst \
-nx_crypto_des.lst \
-nx_crypto_dh.lst \
-nx_crypto_drbg.lst \
-nx_crypto_ec.lst \
-nx_crypto_ec_secp192r1_fixed_points.lst \
-nx_crypto_ec_secp224r1_fixed_points.lst \
-nx_crypto_ec_secp256r1_fixed_points.lst \
-nx_crypto_ec_secp384r1_fixed_points.lst \
-nx_crypto_ec_secp521r1_fixed_points.lst \
-nx_crypto_ecdh.lst \
-nx_crypto_ecdsa.lst \
-nx_crypto_ecjpake.lst \
-nx_crypto_gcm.lst \
-nx_crypto_generic_ciphersuites.lst \
-nx_crypto_hkdf.lst \
-nx_crypto_hmac.lst \
-nx_crypto_hmac_md5.lst \
-nx_crypto_hmac_sha1.lst \
-nx_crypto_hmac_sha2.lst \
-nx_crypto_hmac_sha5.lst \
-nx_crypto_huge_number.lst \
-nx_crypto_huge_number_extended.lst \
-nx_crypto_initialize.lst \
-nx_crypto_md5.lst \
-nx_crypto_method_self_test.lst \
-nx_crypto_method_self_test_3des.lst \
-nx_crypto_method_self_test_aes.lst \
-nx_crypto_method_self_test_des.lst \
-nx_crypto_method_self_test_drbg.lst \
-nx_crypto_method_self_test_ecdh.lst \
-nx_crypto_method_self_test_ecdsa.lst \
-nx_crypto_method_self_test_hmac_md5.lst \
-nx_crypto_method_self_test_hmac_sha.lst \
-nx_crypto_method_self_test_md5.lst \
-nx_crypto_method_self_test_pkcs1.lst \
-nx_crypto_method_self_test_prf.lst \
-nx_crypto_method_self_test_rsa.lst \
-nx_crypto_method_self_test_sha.lst \
-nx_crypto_methods.lst \
-nx_crypto_module_start.lst \
-nx_crypto_null_cipher.lst \
-nx_crypto_phash.lst \
-nx_crypto_pkcs1_v1.5.lst \
-nx_crypto_rsa.lst \
-nx_crypto_sha1.lst \
-nx_crypto_sha2.lst \
-nx_crypto_sha5.lst \
-nx_crypto_tls_prf_1.lst \
-nx_crypto_tls_prf_sha256.lst \
-nx_crypto_tls_prf_sha384.lst \
-nx_crypto_tls_prf_sha512.lst \
-nx_crypto_xcbc_mac.lst 
-
 C_DEPS += \
 ./crypto_libraries/src/nx_crypto_3des.d \
 ./crypto_libraries/src/nx_crypto_aes.d \
@@ -239,13 +180,8 @@ OBJS += \
 ./crypto_libraries/src/nx_crypto_tls_prf_sha512.o \
 ./crypto_libraries/src/nx_crypto_xcbc_mac.o 
 
-MAP += \
-netxduo.map 
-
 
 # Each subdirectory must supply rules for building sources it contributes
 crypto_libraries/src/%.o: ../crypto_libraries/src/%.c
-	@echo 'Building file: $<'
-	$(file > $@.in,-mcpu=cortex-a9 -march=armv7-a -marm -mlittle-endian -mfloat-abi=hard -mfpu=vfpv3-d16 -O3 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wnull-dereference -Wstack-usage=2000 -g -I"E:\\Sotatek\\AzureRTOS_RZ-A1\\pos_workspace\\rz_bsp\\azure\\ports\\cortex_a9\\gnu\\inc" -I../../filex/common/inc -I../../threadx/common/inc -I../../rz_bsp/azure/ports/cortex_a9/gnu/inc -I../../netxduo/common/inc -I../../netxduo/crypto_libraries/inc -I../../netxduo/nx_secure/ports -I../../netxduo/nx_secure/inc -I../../netxduo/addons/azure_iot -I../../netxduo/addons/azure_iot/azure-sdk-for-c/sdk/inc -I../../netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/inc -I../../netxduo/addons/azure_iot/azure_iot_security_module/inc -I../../netxduo/addons/azure_iot/azure_iot_security_module -I../../netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/deps/flatcc/src/runtime -I../../netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/deps/flatcc/include -I../../netxduo/addons/cloud -I../../netxduo/addons/mqtt -I../../netxduo/addons/dns -std=gnu11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<")
-	@echo $< && arm-none-eabi-gcc @"$@.in"
+	arm-none-eabi-gcc -mcpu=cortex-a9 -march=armv7-a -marm -mlittle-endian -mfloat-abi=hard -mfpu=vfpv3-d16 -O3 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wnull-dereference -g -Wstack-usage=2000 -I../../filex/ports/cortex_a9/gnu/inc -I../../filex/common/inc -I../../threadx/common/inc -I../../rz_bsp/azure/ports/cortex_a9/gnu/inc -I../../netxduo/common/inc -I../../netxduo/crypto_libraries/inc -I../../netxduo/nx_secure/ports -I../../netxduo/nx_secure/inc -I../../netxduo/addons/azure_iot -I../../netxduo/addons/azure_iot/azure-sdk-for-c/sdk/inc -I../../netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/inc -I../../netxduo/addons/azure_iot/azure_iot_security_module/inc -I../../netxduo/addons/azure_iot/azure_iot_security_module -I../../netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/deps/flatcc/src/runtime -I../../netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/deps/flatcc/include -I../../netxduo/addons/cloud -I../../netxduo/addons/mqtt -I../../netxduo/addons/dns -std=gnu11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"
 

@@ -26,7 +26,7 @@
  * Device(s)    : Renesas
  * Tool-Chain   : GNUARM-NONE-EABI v14.02
  * OS           : FreeRTOS
- * H/W Platform : RSK+
+ * H/W Platform : RSK+RZA1H CPU Board
  * Description  : Simple sample device driver for a SCIF HLD module
  ******************************************************************************
  * History      : DD.MM.YYYY Ver. Description
@@ -91,13 +91,8 @@ int scifOutputDebugString (uint8_t *pbyBuffer, uint32_t uiCount);
 
 static int_t scif_open (st_stream_ptr_t pStream);
 static void scif_close(st_stream_ptr_t pStream);
-#if 1	/* grape */
-int scif_read (st_stream_ptr_t pStream, uint8_t *pbyBuffer, uint32_t uiCount);
-int scif_write (st_stream_ptr_t pStream, uint8_t *pbyBuffer, uint32_t uiCount);
-#else
 static int scif_read (st_stream_ptr_t pStream, uint8_t *pbyBuffer, uint32_t uiCount);
 static int scif_write (st_stream_ptr_t pStream, uint8_t *pbyBuffer, uint32_t uiCount);
-#endif
 static int scif_control(st_stream_ptr_t pStream, uint32_t ctlCode, void *pCtlStruct);
 static int_t scif_get_version(st_stream_ptr_t stream_ptr, st_ver_info_t *pVerInfo);
 
@@ -193,7 +188,7 @@ int scifOutputDebugString (uint8_t *pbyBuffer, uint32_t uiCount)
 
 /******************************************************************************
  Function Name: scif_open
- Description:   Function to open SCIF
+ Description:   Function to open SCIF2
  Arguments:     IN  pStream - Pointer to the file stream
  Return value:  0 for success otherwise -1
  ******************************************************************************/
@@ -354,11 +349,7 @@ static void scif_close(st_stream_ptr_t pStream)
                 IN  uiCount - The number of bytes to read
  Return value:  data count for success or Error Code on error
  ******************************************************************************/
-#if 1	/* grape */
-int scif_read (st_stream_ptr_t pStream, uint8_t *pbyBuffer, uint32_t uiCount)
-#else
 static int scif_read (st_stream_ptr_t pStream, uint8_t *pbyBuffer, uint32_t uiCount)
-#endif
 {
     /* File stream is not used */
     (void) pStream;
@@ -387,11 +378,7 @@ static int scif_read (st_stream_ptr_t pStream, uint8_t *pbyBuffer, uint32_t uiCo
                 IN  uiCount - The number of bytes to write
  Return value:  data count for success or Error Code on error
  ******************************************************************************/
-#if 1	/* grape */
-int scif_write (st_stream_ptr_t pStream, uint8_t *pbyBuffer, uint32_t uiCount)
-#else
 static int scif_write (st_stream_ptr_t pStream, uint8_t *pbyBuffer, uint32_t uiCount)
-#endif
 {
     /* File stream is not used */
     (void) pStream;

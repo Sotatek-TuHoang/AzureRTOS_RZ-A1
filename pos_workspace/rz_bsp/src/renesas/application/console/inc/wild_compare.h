@@ -26,7 +26,7 @@
  * @brief          Function to perform a string compare with * wild card.
  * @version        1.00
  * @date           27.06.2018
- * H/W Platform    RZ/A1LU
+ * H/W Platform    RZA1H
  *****************************************************************************/
  /*****************************************************************************
  * History      : DD.MM.YYYY Ver. Description
@@ -44,7 +44,7 @@
  *
  * @anchor R_SW_PKG_93_CONSOLE_WILDCARD_INSTANCES
  * @par Known Implementations:
- * This driver is used in the RZA1LU Software Package.
+ * This driver is used in the RZA1H Software Package.
  * @see RENESAS_APPLICATION_SOFTWARE_PACKAGE
  * @{
  *****************************************************************************/

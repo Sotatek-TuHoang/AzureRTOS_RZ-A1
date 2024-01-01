@@ -165,6 +165,11 @@ static int_t dmac_hld_open (st_stream_ptr_t p_stream)
     channel = dmac_get_channel(p_stream);
     sc_config_index = p_stream->sc_config_index;
 
+    //if (DRV_ERROR == channel)		// SSGRZAISRC-543 quick kludge to allow channel 1 to operate
+    //{                             // DRV_ERROR is 1 which is the same as channel 1!
+    //    return DRV_ERROR;
+    //}
+
     /* check that we haven't exceeded the open count for this channel */
     if (s_dmac_drv_config.channel_configuration[channel].open_count >= R_CFG_DMAC_DRV_MAXIMUM_ACCESS_PRV)
     {

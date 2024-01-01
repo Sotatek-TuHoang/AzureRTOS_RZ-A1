@@ -51,13 +51,7 @@
  * @{
  **********************************************************************************************************************/
 
-#if (TARGET_RZA1 == TARGET_RZA1H)
-#include "r_dmac_lld_rza1h.h"	/* low layer to high layer API */
-#elif ( TARGET_RZA1 == TARGET_RZA1LU)
-#include "r_dmac_lld_rza1l.h"       /* low layer to high layer API */
-#else 
-#error Define Target RZA1
-#endif    
+#include "r_dmac_lld_rza1h.h"       /* low layer to high layer API */
 #include "r_intc.h"                 /* INTC low layer driver used in HLD */
 
 #ifndef R_DMAC_INC_R_DMAC_DRV_LINK_H_

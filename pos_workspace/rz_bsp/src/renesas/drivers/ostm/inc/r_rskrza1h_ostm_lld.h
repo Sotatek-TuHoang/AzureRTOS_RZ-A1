@@ -26,7 +26,7 @@
  * @brief          OS timer driver API header
  * @version        1.00
  * @date           27.06.2018
- * H/W Platform    RZ/A1LU
+ * H/W Platform    RSK+RZA1H CPU Board
  *****************************************************************************/
  /*****************************************************************************
  * History      : DD.MM.YYYY Ver. Description
@@ -39,24 +39,24 @@
 
 /****************************************************************************//**
  * @ingroup SSGSTARC_37_OSTM_DRIVER
- * @defgroup RZA1LU_STREAM_IT_OSTM_LLD OSTM low layer driver configuration
- * @brief This interface allows control of the OSTM interface on the RZA1LU
+ * @defgroup RZA1H_OSTM_LLD OSTM low layer driver configuration
+ * @brief This interface allows control of the OSTM interface on the RZA1H
  * Stream-IT board.
  *
- * @anchor RZA1LU_STREAM_IT_OSTM_LLD_SUMMARY
+ * @anchor RZA1H_OSTM_LLD_SUMMARY
  * @par Summary
- * @brief The RZA1LU low layer driver has direct access to the OSTM peripheral.
+ * @brief The RZA1H low layer driver has direct access to the OSTM peripheral.
  * It is configured by smart configurator.
  *
- * @anchor RZA1LU_STREAM_IT_OSTM_LLD_LIMITATIONS
+ * @anchor RZA1H_OSTM_LLD_LIMITATIONS
  * @par Known Limitations
  * @ref NONE_YET
  *
- * @anchor RZA1LU_STREAM_IT_OSTM_LLD_INSTANCES
+ * @anchor RZA1H_OSTM_LLD_INSTANCES
  * @par Known Implementations
  * @ref NONE_YET
  *
- * @anchor RZA1LU_STREAM_IT_OSTM_LLD_RELATED
+ * @anchor RZA1H_OSTM_LLD_RELATED
  * @par Related modules
  * @ref RENESAS_OS_ABSTRACTION  Renesas OS Abstraction interface
  * @{

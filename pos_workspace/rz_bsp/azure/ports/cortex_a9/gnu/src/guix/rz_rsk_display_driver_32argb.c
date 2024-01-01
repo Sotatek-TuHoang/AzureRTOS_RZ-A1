@@ -1,5 +1,3 @@
-#include "mcu_board_select.h"
-#if (TARGET_GUI_BPP == TARGET_GUI_RGB8888)
 
 #include    <stdio.h>
 #include    <string.h>
@@ -395,4 +393,3 @@ UINT rz_graphics_driver_setup_32argb(GX_DISPLAY *display)
     return GX_SUCCESS;
 }
     
-#endif

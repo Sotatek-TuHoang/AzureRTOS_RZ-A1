@@ -31,14 +31,7 @@
 
 
 /* Abstract device name from include files */
-#include "mcu_board_select.h"
-#if ((TARGET_RZA1 == TARGET_RZA1H) || (TARGET_RZA1 == TARGET_RZA1M))
 #include "r_dmac_lld_cfg_rza1h.h"
-#elif (TARGET_RZA1 <= TARGET_RZA1LU)
-#include "r_dmac_lld_cfg_rza1l.h"
-#else 
-#error Define Target RZA1
-#endif
 
 #ifndef R_DMAC_INC_R_DMAC_DEVICE_CFG_H_
 #define R_DMAC_INC_R_DMAC_DEVICE_CFG_H_

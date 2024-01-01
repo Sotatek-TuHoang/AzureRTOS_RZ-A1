@@ -1,9 +1,8 @@
 addons/azure_iot/azure_iot_security_module/src/model/objects/object_network_activity_ext.o: \
  ../addons/azure_iot/azure_iot_security_module/src/model/objects/object_network_activity_ext.c \
- E:\Sotatek\AzureRTOS_RZ-A1\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/nx_api.h \
- ../../threadx/common/inc/tx_api.h \
- E:\Sotatek\AzureRTOS_RZ-A1\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/tx_port.h \
- E:\Sotatek\AzureRTOS_RZ-A1\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/nx_port.h \
+ ../../netxduo/common/inc/nx_api.h ../../threadx/common/inc/tx_api.h \
+ ../../rz_bsp/azure/ports/cortex_a9/gnu/inc/tx_port.h \
+ ../../rz_bsp/azure/ports/cortex_a9/gnu/inc/nx_port.h \
  ../../threadx/common/inc/tx_trace.h ../../netxduo/common/inc/nx_ip.h \
  ../../netxduo/common/inc/nx_ipv4.h ../../netxduo/common/inc/nx_ipv6.h \
  ../../netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/inc/asc_security_core/object_pool.h \
@@ -21,13 +20,13 @@ addons/azure_iot/azure_iot_security_module/src/model/objects/object_network_acti
  ../../netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/inc/asc_security_core/model/objects/network_activity.h \
  ../../netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/inc/asc_security_core/model/objects/transport_protocol.h
 
-E:\Sotatek\AzureRTOS_RZ-A1\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/nx_api.h:
+../../netxduo/common/inc/nx_api.h:
 
 ../../threadx/common/inc/tx_api.h:
 
-E:\Sotatek\AzureRTOS_RZ-A1\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/tx_port.h:
+../../rz_bsp/azure/ports/cortex_a9/gnu/inc/tx_port.h:
 
-E:\Sotatek\AzureRTOS_RZ-A1\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/nx_port.h:
+../../rz_bsp/azure/ports/cortex_a9/gnu/inc/nx_port.h:
 
 ../../threadx/common/inc/tx_trace.h:
 

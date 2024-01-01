@@ -29,7 +29,6 @@
 #include "ux_host_class_storage.h"
 #include "ux_host_stack.h"
 
-#include "usb_size.h"	/* grape */
 
 /**************************************************************************/
 /*                                                                        */

@@ -25,17 +25,18 @@
  * conditions found by accessing the following link:
  * http://www.renesas.com/disclaimer
  ******************************************************************************/
-/* Copyright (C) 2018 Renesas Electronics Corporation. All rights reserved.  */
+/* Copyright (C) 2019 Renesas Electronics Corporation. All rights reserved.  */
 /******************************************************************************
  * File Name    : r_eeprom_drv_api.c
- * Version      : 1.00
- * Device       : GNU
- * Tool-Chain   : GNUARM-NONE-EABI v14.02
- * H/W Platform : RSK+
- * Description  : Hardware interface and device driver for CAT24C04
+ * Version      : 2.00
+ * Device(s)    : RZ/A1H (R7S721001)
+ * Tool-Chain   : GCC ARM Embedded v6.3
+ * H/W Platform : Renesas Starter Kit+ for RZ/A1H
+ * Description  : Hardware interface and device driver for R1EX24016
  ******************************************************************************
  * History : DD.MM.YYYY Version Description
  *         : dd.mm.yyyy 1.00    First Release
+ *         : 24.04.2019 2.00    Porting for RZ/A1H
  ******************************************************************************/
 
 /******************************************************************************

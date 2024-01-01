@@ -36,8 +36,6 @@
 /******************************************************************************
  Includes   <System Includes> , "Project Includes"
  ******************************************************************************/
- #include "mcu_board_select.h"
-#if ( TARGET_RZA1 == TARGET_RZA1H )
 #include <stdio.h>
 
 #include "r_typedefs.h"
@@ -1845,5 +1843,5 @@ e_r_drv_dmac_err_t R_DMAC_GetCrtbRegisterValue(uint_t sc_config_index, uint32_t 
 /*******************************************************************************
  End of function R_DMAC_SetNextTransfer
  ******************************************************************************/
-#endif
+
 /* End of File */

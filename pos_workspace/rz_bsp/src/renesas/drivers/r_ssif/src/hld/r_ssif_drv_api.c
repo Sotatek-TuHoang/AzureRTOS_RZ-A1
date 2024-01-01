@@ -110,7 +110,7 @@ static int_t ssif_open (st_stream_ptr_t pStream)
     configure_ssif_channel(SSIF_CHNUM_0);
 
     /* get access to channel to enable it */
-    if (false == R_OS_WaitForSemaphore( gsp_info_ch->sem_access, R_OS_ABSTRACTION_PRV_EV_WAIT_INFINITE))
+    if (false == R_OS_WaitForSemaphore( &gsp_info_ch->sem_access, R_OS_ABSTRACTION_PRV_EV_WAIT_INFINITE))
     {
         ercd = DEVDRV_ERROR;
     }
@@ -133,7 +133,7 @@ static int_t ssif_open (st_stream_ptr_t pStream)
 
     }
 
-    R_OS_ReleaseSemaphore( gsp_info_ch->sem_access);
+    R_OS_ReleaseSemaphore( &gsp_info_ch->sem_access);
 
     return (ercd);
 }
@@ -165,7 +165,7 @@ static void ssif_close (st_stream_ptr_t pStream)
     else
     {
         /* Get semaphore to access the channel data */
-        if (false == R_OS_WaitForSemaphore( gsp_info_ch->sem_access, R_OS_ABSTRACTION_PRV_EV_WAIT_INFINITE))
+        if (false == R_OS_WaitForSemaphore( &gsp_info_ch->sem_access, R_OS_ABSTRACTION_PRV_EV_WAIT_INFINITE))
         {
             ercd = DEVDRV_ERROR;
         }
@@ -189,7 +189,7 @@ static void ssif_close (st_stream_ptr_t pStream)
             }
 
             /* Release semaphore */
-            R_OS_ReleaseSemaphore( gsp_info_ch->sem_access);
+            R_OS_ReleaseSemaphore( &gsp_info_ch->sem_access);
         }
     }
 }

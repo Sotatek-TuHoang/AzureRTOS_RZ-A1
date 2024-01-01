@@ -26,7 +26,7 @@
  * @brief          Routines for handling USER key switch input.
  * @version        1.00
  * @date           27.06.2018
- * H/W Platform  : Stream it! v2
+ * H/W Platform  : RSK+RZA1H CPU Board
  *****************************************************************************/
  /*****************************************************************************
  * History      : DD.MM.YYYY Ver. Description
@@ -38,17 +38,17 @@
 #define R_SW_PKG_93_SWITCH_API_H_INCLUDED
 /**************************************************************************//**
  * @ingroup R_SW_PKG_93_NONOS_DRIVERS
- * @defgroup R_SW_PKG_93_SWITCH_API SWITCH RZA1LU Driver
- * @brief This is a simple Switch Driver developed for the RZA1LU Stream-IT
+ * @defgroup R_SW_PKG_93_SWITCH_API SWITCH RZA1H Driver
+ * @brief This is a simple Switch Driver developed for the RZA1H
  * board.
  * @anchor R_SW_PKG_93_SWITCH_API_SUMMARY
  * @par Summary
- * @brief This is a simple Switch Driver developed for the RZA1LU Stream-IT
+ * @brief This is a simple Switch Driver developed for the RZA1H
  * board.
  *
  * @anchor R_SW_PKG_93_SWITCH_API_INSTANCES
  * @par Known Implementations:
- * This driver is used in the RZA1LU Software Package.
+ * This driver is used in the RZA1H Software Package.
  * @see RENESAS_APPLICATION_SOFTWARE_PACKAGE
  *
  * @ref RENESAS_OS_ABSTRACTION  Renesas OS Abstraction interface
@@ -58,8 +58,6 @@
  *****************************************************************************/
 
 #include "r_typedefs.h"
-#include "r_gpio_if.h"
-#include "r_port_if.h"
 
 /***********************************************************************************************************************
  Macro definitions
@@ -68,7 +66,6 @@
 #define USER_SWITCH_PRESSED  ((GPIO.PPR7 & GPIO_P7_P79) != GPIO_P7_P79)
 #define USER_SWITCH_RELEASED ((GPIO.PPR7 & GPIO_P7_P79) == GPIO_P7_P79)
 
-
 /***********************************************************************************************************************
  Typedef definitions
  ***********************************************************************************************************************/
@@ -76,6 +73,7 @@
 /***********************************************************************************************************************
  Exported global variables
  ***********************************************************************************************************************/
+extern volatile uint8_t g_switch_press_flg;
 
 /***********************************************************************************************************************
  Exported global functions (to be accessed by other files)
@@ -89,11 +87,7 @@
  *                       True -  Switch is Interrupt Driven. <BR>
  * @return None.
  */
-void R_SWITCH_Init (PinName pin, int (* func)(uint32_t int_sense, int count) );
-
-void R_SWITCH_remove (PinName pin);
-
-bool_t R_SWITCH_Poll ( PinName pin );
+void R_SWITCH_Init (bool_t interrupt);
 
 /**
  * @brief       Takes a pointer to a function, and sets it as the call-back
@@ -104,7 +98,7 @@ bool_t R_SWITCH_Poll ( PinName pin );
  *
  * @retrun None.
  */
-void R_SWITCH_SetPressCallback (int irq, int (*func) (uint32_t,int));
+void R_SWITCH_SetPressCallback (void (*func) (void));
 
 /**
  * @brief       Takes a pointer to a function, and sets it as the call-back
@@ -113,7 +107,7 @@ void R_SWITCH_SetPressCallback (int irq, int (*func) (uint32_t,int));
  *
  * @param[in]   callback: Pointer to call-back function (set to NULL to disable)
  */
-void R_SWITCH_SetReleaseCallback (int irq, void (*callback) (int));
+void R_SWITCH_SetReleaseCallback (void (*callback) (void));
 
 #endif /* R_SW_PKG_93_SWITCH_API_H_INCLUDED */
 /**************************************************************************//**

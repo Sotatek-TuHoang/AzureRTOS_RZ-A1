@@ -1,9 +1,8 @@
 addons/azure_iot/azure_iot_security_module/src/collectors/collector_system_information.o: \
  ../addons/azure_iot/azure_iot_security_module/src/collectors/collector_system_information.c \
- E:\Sotatek\AzureRTOS_RZ-A1\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/nx_api.h \
- ../../threadx/common/inc/tx_api.h \
- E:\Sotatek\AzureRTOS_RZ-A1\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/tx_port.h \
- E:\Sotatek\AzureRTOS_RZ-A1\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/nx_port.h \
+ ../../netxduo/common/inc/nx_api.h ../../threadx/common/inc/tx_api.h \
+ ../../rz_bsp/azure/ports/cortex_a9/gnu/inc/tx_port.h \
+ ../../rz_bsp/azure/ports/cortex_a9/gnu/inc/nx_port.h \
  ../../threadx/common/inc/tx_trace.h \
  ../../netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/inc/asc_security_core/logger.h \
  ../../netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/inc/asc_security_core/utils/macros.h \
@@ -29,13 +28,13 @@ addons/azure_iot/azure_iot_security_module/src/collectors/collector_system_infor
  ../../netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/inc/asc_security_core/object_pool_static.h \
  ../../netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/inc/asc_security_core/utils/collection/linked_list.h
 
-E:\Sotatek\AzureRTOS_RZ-A1\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/nx_api.h:
+../../netxduo/common/inc/nx_api.h:
 
 ../../threadx/common/inc/tx_api.h:
 
-E:\Sotatek\AzureRTOS_RZ-A1\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/tx_port.h:
+../../rz_bsp/azure/ports/cortex_a9/gnu/inc/tx_port.h:
 
-E:\Sotatek\AzureRTOS_RZ-A1\pos_workspace\rz_bsp\azure\ports\cortex_a9\gnu\inc/nx_port.h:
+../../rz_bsp/azure/ports/cortex_a9/gnu/inc/nx_port.h:
 
 ../../threadx/common/inc/tx_trace.h:
 

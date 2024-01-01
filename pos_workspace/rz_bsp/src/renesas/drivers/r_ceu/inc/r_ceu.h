@@ -26,7 +26,7 @@
  * @brief          Simple interface for CEU Driver
  * @version        1.00
  * @date           27.06.2018
- * H/W Platform    RZ/A1LU
+ * H/W Platform    RZA1H and RZ/A1LU
  *****************************************************************************/
  /*****************************************************************************
  * History      : DD.MM.YYYY Ver. Description

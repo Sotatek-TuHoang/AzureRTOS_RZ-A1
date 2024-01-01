@@ -19,19 +19,20 @@
  * accessing the following link:
  * http://www.renesas.com/disclaimer
  *******************************************************************************
- * Copyright (C) 2018 Renesas Electronics Corporation. All rights reserved.
+ * Copyright (C) 2019 Renesas Electronics Corporation. All rights reserved.
  *****************************************************************************/
 /******************************************************************************
  * @headerfile     r_rskrza1h_riic_lld.h
  * @brief          RIIC low level driver api header. Low level driver is
  *                 expected to implement these functions.
- * @version        1.00
- * @date           27.06.2018
+ * @version        2.00
+ * @date           24.04.2019
  * H/W Platform    Platform independent
  *****************************************************************************/
 /*****************************************************************************
  * History      : DD.MM.YYYY Ver. Description
  *              : 30.06.2018 1.00 First Release
+ *              : 24.04.2019 2.00 Porting for RZ/A1
  *****************************************************************************/
 
 /* Multiple inclusion prevention macro */
