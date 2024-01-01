@@ -1,6 +1,0 @@
-13:38:42 **** Incremental Build of configuration Debug for project rz_bsp ****
-make -r -j12 all 
-make: Nothing to be done for 'all'.
-
-13:38:42 Build Finished. 0 errors, 0 warnings. (took 151ms)
-
