@@ -3164,3 +3164,6 @@ org.eclipse.cdt.managedbuilder.core.BuildException: Type of option value is inco
 
 !ENTRY org.eclipse.cdt.core 1 0 2024-01-01 13:36:50.697
 !MESSAGE Indexed 'guix' (1,229 sources, 64 headers) in 7.22 sec: 24,211 declarations; 135,639 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.core.jobs 2 2 2024-01-01 13:45:54.129
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.renesas.logging.internal.reporter.ReportingLibrary$1
