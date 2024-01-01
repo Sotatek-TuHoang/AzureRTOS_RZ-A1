@@ -122,7 +122,7 @@ void    tx_application_define(void *first_unused_memory)
 	R_OS_CreateMessageQueue( DEMO_QUEUE_SIZE, &queue_0 );
 
 	/* Create the semaphore used by threads 3 and 4.  */
-	R_OS_CreateSemaphore(&semaphore_0, 1);
+	R_OS_CreateSemaphore(semaphore_0, 1);
 
 	/* Create the mutex used by thread 6 and 7 without priority inheritance.  */
 	mutex_0 = R_OS_CreateMutex();

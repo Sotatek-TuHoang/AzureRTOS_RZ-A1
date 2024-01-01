@@ -33,7 +33,7 @@
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format.1386440674" name="Debug format" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format" useByScannerDiscovery="true"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name.779627882" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name" useByScannerDiscovery="false" value="GNU Tools for ARM Embedded Processors" valueType="string"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.196721232" name="Architecture" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.architecture" useByScannerDiscovery="false" value="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.arm" valueType="enumerated"/>
-							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.family.1197786364" name="ARM family" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.family" useByScannerDiscovery="false" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-a9" valueType="enumerated"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.family.1197786364" name="Arm family (-mcpu)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.family" useByScannerDiscovery="false" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-a9" valueType="enumerated"/>
 							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.instructionset.1983568803" name="Instruction set" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.instructionset" useByScannerDiscovery="false" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset.arm" valueType="enumerated"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix.1339404104" name="Prefix" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix" useByScannerDiscovery="false" value="arm-none-eabi-" valueType="string"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.c.657158838" name="C compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.c" useByScannerDiscovery="false" value="gcc" valueType="string"/>
@@ -45,7 +45,7 @@
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.make.944876147" name="Build command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.make" useByScannerDiscovery="false" value="make" valueType="string"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.rm.601474129" name="Remove command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.rm" useByScannerDiscovery="false" value="rm" valueType="string"/>
 							<option id="com.renesas.cdt.managedbuild.gcc.rz.createlibgen.1027744592" name="Create libgen" superClass="com.renesas.cdt.managedbuild.gcc.rz.createlibgen" useByScannerDiscovery="false" value="false" valueType="boolean"/>
-							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.architecture.220926133" name="Architecture" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.architecture" useByScannerDiscovery="false" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.armv7-a" valueType="enumerated"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.architecture.220926133" name="Architecture (-march)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.architecture" useByScannerDiscovery="false" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.arch.none" valueType="enumerated"/>
 							<option id="com.renesas.cdt.managedbuild.gcc.rz.deviceName.1019933400" name="Device name" superClass="com.renesas.cdt.managedbuild.gcc.rz.deviceName" useByScannerDiscovery="false" value="R7S721001_DualSPI" valueType="string"/>
 							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.floatunit.951416008" name="FPU Type" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.floatunit" useByScannerDiscovery="true" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.unit.vfpv3d16" valueType="enumerated"/>
 							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.floatabi.2124829567" name="Float ABI" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.floatabi" useByScannerDiscovery="true" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.abi.hard" valueType="enumerated"/>
@@ -91,7 +91,6 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/rz_bsp/src/renesas/drivers/r_wdt/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/rz_bsp/src/renesas/drivers/r_eeprom/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/rz_bsp/src/renesas/middleware/cmos/inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/rz_bsp/src/renesas/middleware/fatfs/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/rz_bsp/src/renesas/middleware/pmod_lcd/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/rz_bsp/src/renesas/middleware/touch/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/rz_bsp/src/renesas/middleware/timer/inc}&quot;"/>
@@ -177,7 +176,7 @@
 		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-		<project id="sample_threadx.com.renesas.cdt.managedbuild.gcc.rz.target.elf.843615001" name="Executable" projectType="com.renesas.cdt.managedbuild.gcc.rz.target.elf"/>
+		<project id="sample_threadx.com.renesas.cdt.managedbuild.gcc.rz.target.elf.1495911750" name="Executable" projectType="com.renesas.cdt.managedbuild.gcc.rz.target.elf"/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.pathentry"/>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
