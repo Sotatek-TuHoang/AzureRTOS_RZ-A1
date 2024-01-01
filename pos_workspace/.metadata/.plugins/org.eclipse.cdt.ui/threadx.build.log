@@ -1,6 +1,6 @@
-02:38:04 **** Incremental Build of configuration Debug for project threadx ****
+13:38:43 **** Incremental Build of configuration Debug for project threadx ****
 make -r -j12 all 
 make: Nothing to be done for 'all'.
 
-02:38:05 Build Finished. 0 errors, 0 warnings. (took 100ms)
+13:38:43 Build Finished. 0 errors, 0 warnings. (took 100ms)
 
